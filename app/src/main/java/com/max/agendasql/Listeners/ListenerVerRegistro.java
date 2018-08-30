@@ -2,7 +2,7 @@ package com.max.agendasql.Listeners;
 import android.content.Intent;
 import android.view.View;
 
-import com.max.agendasql.Interfaz.ListView;
+import com.max.agendasql.Interfaz.ListaVista;
 import com.max.agendasql.Interfaz.MainActivity;
 
 public class ListenerVerRegistro implements View.OnClickListener{
@@ -12,7 +12,7 @@ public class ListenerVerRegistro implements View.OnClickListener{
   }
   @Override
   public void onClick(View v) {
-    Intent listView=new Intent(context, ListView.class);
-    context.startActivities(listView);
+    Intent intent=new Intent(context, ListaVista.class);
+    context.startActivities(intent);
   }
 }
