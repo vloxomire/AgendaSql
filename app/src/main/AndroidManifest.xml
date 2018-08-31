@@ -9,15 +9,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Interfaz.MainActivity">
+        <activity android:name=".Interfaz.MainActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Interfaz.ListaVista" />
-        <activity android:name=".Interfaz.Celdas"></activity>
+        <activity android:name=".Interfaz.ListaVista" >
+        <intent-filter>
+            <action android:name="android.intent.action.LISTAVISTA" />
+
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+        </activity>
+        <activity android:name=".Interfaz.Celdas">
+            <intent-filter>
+                <action android:name="android.intent.action.CELDAS" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
