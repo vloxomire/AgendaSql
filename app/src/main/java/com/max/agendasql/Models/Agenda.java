@@ -6,6 +6,7 @@ public class Agenda {
     private String apellido;
     private Integer telefono;
     private Integer dni;
+    private String email;
     private String calle;
     private Integer altura;
     private Integer pisoDto;
@@ -28,6 +29,14 @@ public class Agenda {
 
     public Integer getDni() {
         return dni;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getCalle() {
@@ -74,12 +83,13 @@ public class Agenda {
         this.pisoDto = pisoDto;
     }
 
-    public Agenda(Integer id, String nombre, String apellido, Integer telefono, Integer dni, String calle, Integer altura, Integer pisoDto) {
+    public Agenda(Integer id, String nombre, String apellido, Integer telefono, Integer dni, String email,String calle, Integer altura, Integer pisoDto) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
         this.dni = dni;
+        this.email=email;
         this.calle = calle;
         this.altura = altura;
         this.pisoDto = pisoDto;

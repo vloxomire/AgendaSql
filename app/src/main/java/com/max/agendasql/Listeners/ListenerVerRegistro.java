@@ -12,7 +12,7 @@ public class ListenerVerRegistro implements View.OnClickListener{
   }
   @Override
   public void onClick(View v) {
-    Intent intent=new Intent(context, ListaVista.class);
-    context.startActivities(intent);
+    Intent listaVista =new Intent(context, ListaVista.class);
+    context.startActivities(listaVista);
   }
 }

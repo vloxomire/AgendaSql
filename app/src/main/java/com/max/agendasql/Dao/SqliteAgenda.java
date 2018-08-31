@@ -38,7 +38,7 @@ public class SqliteAgenda extends SQLiteOpenHelper{
     public void GuardarAgendaSql(Agenda agenda){
     this.Conectar();
     String query="";
-    query="insert into historial(Nombre, Apellido, Telefono, Dni, Calle, Altura, PisoDto) values('" +agenda.getAgenda()+"')";
+    query="insert into historial(Nombre, Apellido, Telefono, Dni, Calle, Altura, PisoDto) values('" +agenda.getNombre()+agenda.getApellido()+agenda.getTelefono()+agenda.getDni()+agenda.getCalle()+agenda.getAltura()+agenda.getPisoDto()+ "')";
     conexion.execSQL(query);
     this.Desconectar();
     }

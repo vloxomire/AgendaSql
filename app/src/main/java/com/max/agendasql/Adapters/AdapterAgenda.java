@@ -12,7 +12,7 @@ import com.max.agendasql.R;
 
 import java.util.ArrayList;
 
-public class AdapterAgenda extends BaseAdapter{
+public class AdapterAgenda extends BaseAdapter {
     ListaVista context;
     private ArrayList<Agenda> agendaArrayList;
 
@@ -39,10 +39,26 @@ public class AdapterAgenda extends BaseAdapter{
     @Override
     public View getView(int i, View v, ViewGroup vGroup) {
         LayoutInflater milayoutInflater;
-        milayoutInflater=(LayoutInflater)this.context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-        v=milayoutInflater.inflate(R.layout.celdas,vGroup,false);
+        milayoutInflater = (LayoutInflater) this.context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+        v = milayoutInflater.inflate(R.layout.celdas, vGroup, false);
         TextView nombre, apellido, telefono, dni, calle, altura, pisoDto;
-        nombre=v.findViewById(R.id.et1);
-        apellido=v.findViewById(R.id.et2);
+
+        nombre = v.findViewById(R.id.et1);
+        apellido = v.findViewById(R.id.et2);
+        telefono = v.findViewById(R.id.et3);
+        dni = v.findViewById(R.id.et4);
+        calle = v.findViewById(R.id.et5);
+        altura = v.findViewById(R.id.et6);
+        pisoDto = v.findViewById(R.id.et7);
+
+        nombre.setText(agendaArrayList.get(i).getNombre());
+        apellido.setText(agendaArrayList.get(i).getApellido());
+        telefono.setText(String.valueOf(agendaArrayList.get(i).getTelefono()));
+        dni.setText(String.valueOf(agendaArrayList.get(i).getDni()));
+        calle.setText(agendaArrayList.get(i).getCalle());
+        altura.setText(String.valueOf(agendaArrayList.get(i).getAltura()));
+        pisoDto.setText(String.valueOf(agendaArrayList.get(i).getPisoDto()));
+
+        return v;
     }
 }
