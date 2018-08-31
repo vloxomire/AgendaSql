@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class SqliteAgenda extends SQLiteOpenHelper{
     private static final String DBNAME="dbAgenda";
-    private static final Integer DBVERSION=1;
+    private static final Integer DBVERSION=2;
     private Context context;
     private SQLiteDatabase conexion;
 
@@ -20,13 +20,13 @@ public class SqliteAgenda extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-    String query="CREATE TABLE `AgendaTabla` ( `Id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,`Nombre` TEXT NOT NULL, `Apellido` TEXT NOT NULL, `Telefono` INTEGER NOT NULL,`Dni` INTEGER NOT NULL UNIQUE, `Calle` TEXT NOT NULL, `Altura` INTEGER NOT NULL,`PisoDto` INTEGER NOT NULL )";
+    String query="CREATE TABLE `AgendaTabla` ( `Id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,`Nombre` TEXT NOT NULL, `Apellido` TEXT NOT NULL, `Telefono` INTEGER NOT NULL,`Dni` INTEGER NOT NULL UNIQUE,`Email` TEXT NOT NULL,`Calle` TEXT NOT NULL, `Altura` INTEGER NOT NULL,`PisoDto` INTEGER NOT NULL )";
         db.execSQL(query);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-    String query="CREATE TABLE `AgendaTabla` ( `Id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,`Nombre` TEXT NOT NULL, `Apellido` TEXT NOT NULL, `Telefono` INTEGER NOT NULL,`Dni` INTEGER NOT NULL UNIQUE, `Calle` TEXT NOT NULL, `Altura` INTEGER NOT NULL,`PisoDto` INTEGER NOT NULL )";
+    String query="CREATE TABLE `AgendaTabla` ( `Id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,`Nombre` TEXT NOT NULL, `Apellido` TEXT NOT NULL, `Telefono` INTEGER NOT NULL,`Dni` INTEGER NOT NULL UNIQUE,`Email` TEXT NOT NULL,`Calle` TEXT NOT NULL, `Altura` INTEGER NOT NULL,`PisoDto` INTEGER NOT NULL )";
         db.execSQL(query);
     }
     private void Conectar(){
@@ -38,7 +38,7 @@ public class SqliteAgenda extends SQLiteOpenHelper{
     public void GuardarAgendaSql(Agenda agenda){
     this.Conectar();
     String query="";
-    query="insert into historial(Nombre, Apellido, Telefono, Dni, Calle, Altura, PisoDto) values('" +agenda.getNombre()+agenda.getApellido()+agenda.getTelefono()+agenda.getDni()+agenda.getCalle()+agenda.getAltura()+agenda.getPisoDto()+ "')";
+    query="insert into historial(Nombre, Apellido, Telefono, Dni, Email, Calle, Altura, PisoDto) values('" +agenda.getNombre()+agenda.getApellido()+agenda.getTelefono()+agenda.getDni()+agenda.getEmail()+agenda.getCalle()+agenda.getAltura()+agenda.getPisoDto()+ "')";
     conexion.execSQL(query);
     this.Desconectar();
     }
@@ -46,10 +46,10 @@ public class SqliteAgenda extends SQLiteOpenHelper{
       ArrayList<Agenda> agendaArrayList = new ArrayList<>();
       this.Conectar();
       String query="";
-      query="Select Nombre, Apellido, Telefono, Dni, Calle, Altura, PisoDto, Id from historial";
+      query="Select Nombre, Apellido, Telefono, Dni,Email, Calle, Altura, PisoDto, Id from historial";
       Cursor cursor= conexion.rawQuery(query, null);
       while (cursor.moveToNext()){
-          Agenda miAgenda = new Agenda(cursor.getInt(cursor.getColumnIndex("Id")),cursor.getString(cursor.getColumnIndex("Nombre")),cursor.getString(cursor.getColumnIndex("Apellido")),cursor.getInt(cursor.getColumnIndex("Telefono")),cursor.getInt(cursor.getColumnIndex("Dni")),cursor.getString(cursor.getColumnIndex("Calle")),cursor.getInt(cursor.getColumnIndex("Altura")),cursor.getInt(cursor.getColumnIndex("PisoDto")));
+          Agenda miAgenda = new Agenda(cursor.getInt(cursor.getColumnIndex("Id")),cursor.getString(cursor.getColumnIndex("Nombre")),cursor.getString(cursor.getColumnIndex("Apellido")),cursor.getInt(cursor.getColumnIndex("Telefono")),cursor.getInt(cursor.getColumnIndex("Dni")),cursor.getString(cursor.getColumnIndex("Email")),cursor.getString(cursor.getColumnIndex("Calle")),cursor.getInt(cursor.getColumnIndex("Altura")),cursor.getInt(cursor.getColumnIndex("PisoDto")));
           agendaArrayList.add(miAgenda);
       }
       this.Desconectar();
