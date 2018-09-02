@@ -1,12 +1,11 @@
 package com.max.agendasql.Interfaz;
 
-import android.content.Intent;
-import android.net.sip.SipSession;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.max.agendasql.Dao.SqliteAgenda;
 import com.max.agendasql.Listeners.ListenerRegistrar;
 import com.max.agendasql.Listeners.ListenerVerRegistro;
 import com.max.agendasql.R;
@@ -63,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         botonRegistrar=findViewById(R.id.botonRegistrar);
         botonVerRegistro=findViewById(R.id.botonVerRegristros);
 
-        ListenerRegistrar listenerRegistrar=new ListenerRegistrar(this);
+        ListenerRegistrar listenerRegistrar= new ListenerRegistrar(this);
         ListenerVerRegistro listenerVerRegistro=new ListenerVerRegistro(this);
 
         botonRegistrar.setOnClickListener(listenerRegistrar);

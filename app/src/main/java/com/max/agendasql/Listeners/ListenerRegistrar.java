@@ -10,7 +10,7 @@ public class ListenerRegistrar implements View.OnClickListener{
     MainActivity context;
     SqliteAgenda sqliteAgenda;
 
-    public ListenerRegistrar(MainActivity context, SqliteAgenda sqliteAgenda) {
+    public ListenerRegistrar(MainActivity context) {
         this.context = context;
     }
 

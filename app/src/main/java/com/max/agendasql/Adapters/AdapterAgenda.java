@@ -41,20 +41,22 @@ public class AdapterAgenda extends BaseAdapter {
         LayoutInflater milayoutInflater;
         milayoutInflater = (LayoutInflater) this.context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         v = milayoutInflater.inflate(R.layout.celdas, vGroup, false);
-        TextView nombre, apellido, telefono, dni, calle, altura, pisoDto;
+        TextView nombre, apellido, telefono, dni,email, calle, altura, pisoDto;
 
         nombre = v.findViewById(R.id.et1);
         apellido = v.findViewById(R.id.et2);
         telefono = v.findViewById(R.id.et3);
         dni = v.findViewById(R.id.et4);
-        calle = v.findViewById(R.id.et5);
-        altura = v.findViewById(R.id.et6);
-        pisoDto = v.findViewById(R.id.et7);
+        email=v.findViewById(R.id.et5);
+        calle = v.findViewById(R.id.et6);
+        altura = v.findViewById(R.id.et7);
+        pisoDto = v.findViewById(R.id.et8);
 
         nombre.setText(agendaArrayList.get(i).getNombre());
         apellido.setText(agendaArrayList.get(i).getApellido());
         telefono.setText(String.valueOf(agendaArrayList.get(i).getTelefono()));
         dni.setText(String.valueOf(agendaArrayList.get(i).getDni()));
+        email.setText(agendaArrayList.get(i).getEmail());
         calle.setText(agendaArrayList.get(i).getCalle());
         altura.setText(String.valueOf(agendaArrayList.get(i).getAltura()));
         pisoDto.setText(String.valueOf(agendaArrayList.get(i).getPisoDto()));

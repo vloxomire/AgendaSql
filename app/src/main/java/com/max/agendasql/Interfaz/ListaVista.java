@@ -2,15 +2,12 @@ package com.max.agendasql.Interfaz;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
+import android.widget.ListView;
 import com.max.agendasql.Adapters.AdapterAgenda;
 import com.max.agendasql.Dao.SqliteAgenda;
 import com.max.agendasql.Models.Agenda;
 import com.max.agendasql.R;
-
 import java.util.ArrayList;
-
-import javax.swing.text.html.ListView;
 
 public class ListaVista extends AppCompatActivity {
     private SqliteAgenda sqliteAgenda;
