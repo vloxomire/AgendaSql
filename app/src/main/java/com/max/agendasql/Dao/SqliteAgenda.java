@@ -38,7 +38,7 @@ public class SqliteAgenda extends SQLiteOpenHelper{
     public void GuardarAgendaSql(Agenda agenda){
     this.Conectar();
     String query="";
-    query="insert into historial(Nombre, Apellido, Telefono, Dni, Email, Calle, Altura, PisoDto) values('" +agenda.getNombre()+agenda.getApellido()+agenda.getTelefono()+agenda.getDni()+agenda.getEmail()+agenda.getCalle()+agenda.getAltura()+agenda.getPisoDto()+ "')";
+    query="insert into AgendaTabla (Nombre,Apellido,Telefono,Dni,Email,Calle,Altura,PisoDto) values('" +agenda.getNombre()+agenda.getApellido()+agenda.getTelefono()+agenda.getDni()+agenda.getEmail()+agenda.getCalle()+agenda.getAltura()+agenda.getPisoDto()+ "')";
     conexion.execSQL(query);
     this.Desconectar();
     }
@@ -46,7 +46,7 @@ public class SqliteAgenda extends SQLiteOpenHelper{
       ArrayList<Agenda> agendaArrayList = new ArrayList<>();
       this.Conectar();
       String query="";
-      query="Select Nombre, Apellido, Telefono, Dni,Email, Calle, Altura, PisoDto, Id from historial";
+      query="Select Nombre, Apellido, Telefono, Dni, Email, Calle, Altura, PisoDto, Id from AgendaTabla";
       Cursor cursor= conexion.rawQuery(query, null);
       while (cursor.moveToNext()){
           Agenda miAgenda = new Agenda(cursor.getInt(cursor.getColumnIndex("Id")),cursor.getString(cursor.getColumnIndex("Nombre")),cursor.getString(cursor.getColumnIndex("Apellido")),cursor.getInt(cursor.getColumnIndex("Telefono")),cursor.getInt(cursor.getColumnIndex("Dni")),cursor.getString(cursor.getColumnIndex("Email")),cursor.getString(cursor.getColumnIndex("Calle")),cursor.getInt(cursor.getColumnIndex("Altura")),cursor.getInt(cursor.getColumnIndex("PisoDto")));
