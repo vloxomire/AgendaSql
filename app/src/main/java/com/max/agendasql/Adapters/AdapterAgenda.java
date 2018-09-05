@@ -4,21 +4,28 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.max.agendasql.Dao.SqliteAgenda;
 import com.max.agendasql.Interfaz.ListaVista;
+import com.max.agendasql.Listeners.ListenerImageBorrar;
 import com.max.agendasql.Models.Agenda;
 import com.max.agendasql.R;
 
 import java.util.ArrayList;
 
 public class AdapterAgenda extends BaseAdapter {
-    ListaVista context;
+    private ListaVista context;
     private ArrayList<Agenda> agendaArrayList;
+    private ListView listView;
+    private ListenerImageBorrar listenerImageBorrar;
 
-    public AdapterAgenda(ListaVista context, ArrayList<Agenda> agendaArrayList) {
+    public AdapterAgenda(ListaVista context, ArrayList<Agenda> agendaArrayList, ListView listView) {
         this.context = context;
         this.agendaArrayList = agendaArrayList;
+        this.listView = listView;
     }
 
     @Override
@@ -42,16 +49,20 @@ public class AdapterAgenda extends BaseAdapter {
         milayoutInflater = (LayoutInflater) this.context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         v = milayoutInflater.inflate(R.layout.celdas, vGroup, false);
         TextView nombre, apellido, telefono, dni,email, calle, altura, pisoDto;
+        ImageButton imageButton;
 
-        nombre = v.findViewById(R.id.et1);
-        apellido = v.findViewById(R.id.et2);
-        telefono = v.findViewById(R.id.et3);
-        dni = v.findViewById(R.id.et4);
-        email=v.findViewById(R.id.et5);
-        calle = v.findViewById(R.id.et6);
-        altura = v.findViewById(R.id.et7);
-        pisoDto = v.findViewById(R.id.et8);
+        imageButton=v.findViewById(R.id.imageButtonBorrar);
+        nombre = v.findViewById(R.id.tv1);
+        apellido = v.findViewById(R.id.tv2);
+        telefono = v.findViewById(R.id.tv3);
+        dni = v.findViewById(R.id.tv4);
+        email=v.findViewById(R.id.tv5);
+        calle = v.findViewById(R.id.tv6);
+        altura = v.findViewById(R.id.tv7);
+        pisoDto = v.findViewById(R.id.tv8);
 
+       listenerImageBorrar= new ListenerImageBorrar(context,listView,agendaArrayList);
+        imageButton.setOnClickListener(listenerImageBorrar);
         nombre.setText(agendaArrayList.get(i).getNombre());
         apellido.setText(agendaArrayList.get(i).getApellido());
         telefono.setText(String.valueOf(agendaArrayList.get(i).getTelefono()));

@@ -42,6 +42,13 @@ public class SqliteAgenda extends SQLiteOpenHelper{
     conexion.execSQL(query);
     this.Desconectar();
     }
+    public void BorrarAgendaSql(Agenda agenda){
+        this.Conectar();
+        String query="";
+        query="delete from AgendaTabla where Id =" + agenda.getId().toString();
+        conexion.execSQL(query);
+        this.Desconectar();
+    }
     public ArrayList<Agenda> getAgenda(){
       ArrayList<Agenda> agendaArrayList = new ArrayList<>();
       this.Conectar();

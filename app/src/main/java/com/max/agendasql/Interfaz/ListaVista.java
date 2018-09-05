@@ -15,20 +15,18 @@ public class ListaVista extends AppCompatActivity {
     private AdapterAgenda adapterAgenda;
     private ListView listViewAgenda;
 
-    public ArrayList<Agenda> getAgendaArrayList() {
-        return agendaArrayList;
-    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_view);
-
-        SqliteAgenda sqliteAgenda=new SqliteAgenda(this);
-        agendaArrayList=sqliteAgenda.getAgenda();
-        adapterAgenda= new AdapterAgenda(this,agendaArrayList);
-
         listViewAgenda=findViewById(R.id.ListaAgenda);
+
+        sqliteAgenda=new SqliteAgenda(this);
+        agendaArrayList=sqliteAgenda.getAgenda();
+        adapterAgenda= new AdapterAgenda(this, agendaArrayList, listViewAgenda);
+
         listViewAgenda.setAdapter(adapterAgenda);
 
 
