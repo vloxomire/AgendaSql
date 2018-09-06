@@ -25,6 +25,10 @@ public class AdapterAgenda extends BaseAdapter {
         this.listView = listView;
     }
 
+    public void setAgendaArrayList(ArrayList<Agenda> agendaArrayList) {
+        this.agendaArrayList = agendaArrayList;
+    }
+
     @Override
     public int getCount() {
         return agendaArrayList.size();

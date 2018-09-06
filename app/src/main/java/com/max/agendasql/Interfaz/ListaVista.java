@@ -15,7 +15,9 @@ public class ListaVista extends AppCompatActivity {
     private AdapterAgenda adapterAgenda;
     private ListView listViewAgenda;
 
-
+    public AdapterAgenda getAdapterAgenda() {
+        return adapterAgenda;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

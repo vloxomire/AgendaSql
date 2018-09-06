@@ -23,6 +23,9 @@ public class ListenerImageBorrar implements View.OnClickListener{
         SqliteAgenda sqliteAgenda= new SqliteAgenda(context);
         Integer posicion=listView.getPositionForView(view);
         sqliteAgenda.BorrarAgendaSql(agendaArrayList.get(posicion));
-        //crear un getAgenda para refresh??
+
+        ArrayList<Agenda> agendaArrayList= sqliteAgenda.getAgenda();    //consulta de ArrayList
+        context.getAdapterAgenda().setAgendaArrayList(agendaArrayList);    //lo vuelve a escribir
+        context.getAdapterAgenda().notifyDataSetChanged();      //ejecutar Sql
     }
 }
