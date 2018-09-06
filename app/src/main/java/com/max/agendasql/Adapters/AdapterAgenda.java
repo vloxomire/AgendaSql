@@ -7,8 +7,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import com.max.agendasql.Dao.SqliteAgenda;
 import com.max.agendasql.Interfaz.ListaVista;
 import com.max.agendasql.Listeners.ListenerImageBorrar;
 import com.max.agendasql.Models.Agenda;

@@ -3,7 +3,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
 import com.max.agendasql.Models.Agenda;
 
 import java.util.ArrayList;
