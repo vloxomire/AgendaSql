@@ -11,7 +11,6 @@ import com.max.agendasql.Interfaz.ListaVista;
 import com.max.agendasql.Listeners.ListenerImageBorrar;
 import com.max.agendasql.Models.Agenda;
 import com.max.agendasql.R;
-
 import java.util.ArrayList;
 
 public class AdapterAgenda extends BaseAdapter {
@@ -46,6 +45,7 @@ public class AdapterAgenda extends BaseAdapter {
         LayoutInflater milayoutInflater;
         milayoutInflater = (LayoutInflater) this.context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         v = milayoutInflater.inflate(R.layout.celdas, vGroup, false);
+        
         TextView nombre, apellido, telefono, dni,email, calle, altura, pisoDto;
         ImageButton imageButton;
 
@@ -61,6 +61,7 @@ public class AdapterAgenda extends BaseAdapter {
 
        listenerImageBorrar= new ListenerImageBorrar(context,listView,agendaArrayList);
         imageButton.setOnClickListener(listenerImageBorrar);
+        
         nombre.setText(agendaArrayList.get(i).getNombre());
         apellido.setText(agendaArrayList.get(i).getApellido());
         telefono.setText(String.valueOf(agendaArrayList.get(i).getTelefono()));
