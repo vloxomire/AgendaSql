@@ -4,8 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-
-import com.max.agendasql.Dao.SqliteAgenda;
 import com.max.agendasql.Listeners.ListenerRegistrar;
 import com.max.agendasql.Listeners.ListenerVerRegistro;
 import com.max.agendasql.R;

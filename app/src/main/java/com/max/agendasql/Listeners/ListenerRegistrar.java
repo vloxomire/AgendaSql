@@ -1,7 +1,6 @@
 package com.max.agendasql.Listeners;
 
 import android.view.View;
-
 import com.max.agendasql.Dao.SqliteAgenda;
 import com.max.agendasql.Interfaz.MainActivity;
 import com.max.agendasql.Models.Agenda;
