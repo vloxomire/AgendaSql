@@ -8,7 +8,7 @@ import com.max.agendasql.Listeners.ListenerGuardar;
 import com.max.agendasql.Listeners.ListenerVerRegistro;
 import com.max.agendasql.R;
 
-public class MainActivity extends AppCompatActivity {
+public class Activity2 extends AppCompatActivity {
     private EditText editNombre, editApellido,et3,et4,et5,et6,et7,et8;
     private Button botonRegistrar;
 

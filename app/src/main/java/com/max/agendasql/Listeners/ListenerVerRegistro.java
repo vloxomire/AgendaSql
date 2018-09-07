@@ -3,7 +3,6 @@ import android.content.Intent;
 import android.view.View;
 
 import com.max.agendasql.Interfaz.ListaVista;
-import com.max.agendasql.Interfaz.MainActivity;
 import com.max.agendasql.Interfaz.Principal;
 
 public class ListenerVerRegistro implements View.OnClickListener{

@@ -2,14 +2,14 @@ package com.max.agendasql.Listeners;
 
 import android.view.View;
 import com.max.agendasql.Dao.SqliteAgenda;
-import com.max.agendasql.Interfaz.MainActivity;
+import com.max.agendasql.Interfaz.Activity2;
 import com.max.agendasql.Models.Agenda;
 
 public class ListenerGuardar implements View.OnClickListener{
-    MainActivity context;
+    Activity2 context;
     SqliteAgenda sqliteAgenda;
 
-    public ListenerGuardar(MainActivity context) {
+    public ListenerGuardar(Activity2 context) {
         this.context = context;
     }
 
