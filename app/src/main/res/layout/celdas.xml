@@ -79,9 +79,9 @@
         android:id="@+id/tv8"
         android:layout_width="198dp"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/imageButtonBorrar"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="83dp"
+        android:layout_marginBottom="-112dp"
         android:text="Email" />
 
     <ImageButton
