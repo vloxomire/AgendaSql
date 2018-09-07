@@ -1,30 +1,22 @@
 package com.max.agendasql.Listeners;
 
+import android.content.Intent;
 import android.view.View;
-import com.max.agendasql.Dao.SqliteAgenda;
 import com.max.agendasql.Interfaz.MainActivity;
-import com.max.agendasql.Models.Agenda;
+import com.max.agendasql.Interfaz.Principal;
 
-public class ListenerRegistrar implements View.OnClickListener{
-    MainActivity context;
-    SqliteAgenda sqliteAgenda;
+public class ListenerRegistrar implements View.OnClickListener {
+    Principal context;
 
-    public ListenerRegistrar(MainActivity context) {
+    public ListenerRegistrar(Principal context) {
         this.context = context;
     }
 
     @Override
-    public void onClick(View vRegistrar) {
-    SqliteAgenda sqliteAgenda= new SqliteAgenda(context);
-    String nombre= context.getEt1().getText().toString();
-    String apellido=context.getEt2().getText().toString();
-    Integer telefono=Integer.parseInt(context.getEt3().getText().toString());
-    Integer dni=Integer.parseInt(context.getEt4().getText().toString());
-    String email=context.getEt5().getText().toString();
-    String calle=context.getEt6().getText().toString();
-    Integer altura=Integer.parseInt(context.getEt7().getText().toString());
-    Integer pisoDto=Integer.parseInt(context.getEt8().getText().toString());
-    Agenda agenda= new Agenda(null,nombre,apellido,telefono,dni,email,calle,altura,pisoDto);
-    sqliteAgenda.GuardarAgendaSql(agenda);
+    public void onClick(View view) {
+        Intent intentRegistrar= new Intent(context, MainActivity.class);
+        Integer valor=0;
+        intentRegistrar.putExtra("Indice",valor);//Necesito un Bundle antes en el activity q paso
+        context.startActivity(intentRegistrar);
     }
 }

@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-import com.max.agendasql.Listeners.ListenerRegistrar;
+import com.max.agendasql.Listeners.ListenerGuardar;
 import com.max.agendasql.Listeners.ListenerVerRegistro;
 import com.max.agendasql.R;
 
@@ -60,11 +60,17 @@ public class MainActivity extends AppCompatActivity {
         botonRegistrar=findViewById(R.id.botonRegistrar);
         botonVerRegistro=findViewById(R.id.botonVerRegristros);
 
-        ListenerRegistrar listenerRegistrar= new ListenerRegistrar(this);
+        ListenerGuardar listenerGuardar = new ListenerGuardar(this);
         ListenerVerRegistro listenerVerRegistro=new ListenerVerRegistro(this);
 
-        botonRegistrar.setOnClickListener(listenerRegistrar);
+        botonRegistrar.setOnClickListener(listenerGuardar);
         botonVerRegistro.setOnClickListener(listenerVerRegistro);
+
+        Bundle bolsaMain= new Bundle(); //creo el objeto
+        bolsaMain=getIntent().getExtras();
+        Integer valorBolsaMain=bolsaMain.getInt("Indice");
+
+        if(valorBolsaMain==0){}
 
 
     }
