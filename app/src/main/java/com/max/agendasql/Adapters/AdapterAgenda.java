@@ -65,6 +65,8 @@ public class AdapterAgenda extends BaseAdapter {
 
        listenerImageBorrar= new ListenerImageBorrar(context,listView,agendaArrayList);
         imageButton.setOnClickListener(listenerImageBorrar);
+        //agregar new objeto de editar
+        //agregar seteo de boton
         
         nombre.setText(agendaArrayList.get(i).getNombre());
         apellido.setText(agendaArrayList.get(i).getApellido());
