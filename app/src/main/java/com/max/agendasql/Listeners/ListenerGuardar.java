@@ -16,8 +16,8 @@ public class ListenerGuardar implements View.OnClickListener{
     @Override
     public void onClick(View vRegistrar) {
     SqliteAgenda sqliteAgenda= new SqliteAgenda(context);
-    String nombre= context.getEt1().getText().toString();
-    String apellido=context.getEt2().getText().toString();
+    String nombre= context.getEditNombre().getText().toString();
+    String apellido=context.getEditApellido().getText().toString();
     Integer telefono=Integer.parseInt(context.getEt3().getText().toString());
     Integer dni=Integer.parseInt(context.getEt4().getText().toString());
     String email=context.getEt5().getText().toString();

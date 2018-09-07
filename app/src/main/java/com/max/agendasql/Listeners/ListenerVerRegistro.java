@@ -4,12 +4,15 @@ import android.view.View;
 
 import com.max.agendasql.Interfaz.ListaVista;
 import com.max.agendasql.Interfaz.MainActivity;
+import com.max.agendasql.Interfaz.Principal;
 
 public class ListenerVerRegistro implements View.OnClickListener{
-  MainActivity context;
-  public ListenerVerRegistro(MainActivity context) {
+  Principal context;
+
+  public ListenerVerRegistro(Principal context) {
     this.context = context;
   }
+
   @Override
   public void onClick(View v) {
     Intent intent =new Intent(context,ListaVista.class);//crear
