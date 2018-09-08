@@ -6,42 +6,53 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Interfaz.Activity2">
+
     <EditText
         android:id="@+id/et1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nombre" />
+        android:hint="Nombre"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/et2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Apellido" />
+        android:hint="Apellido"
+        android:inputType="text" />
+
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/et3"
-        android:hint="Telefono"/>
-    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Telefono"
+        android:inputType="number" />
+
+    <EditText
         android:id="@+id/et4"
-        android:hint="Dni"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Dni"
+        android:inputType="number" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/et5"
         android:hint="Email"/>
+
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/et6"
-        android:hint="Calle"/>
-    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Calle"
+        android:inputType="text" />
+
+    <EditText
         android:id="@+id/et7"
-        android:hint="Altura"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Altura"
+        android:inputType="number" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

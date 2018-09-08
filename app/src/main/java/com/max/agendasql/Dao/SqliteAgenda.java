@@ -48,6 +48,13 @@ public class SqliteAgenda extends SQLiteOpenHelper{
         conexion.execSQL(query);
         this.Desconectar();
     }
+    public void EditarAgendaSql(Agenda agenda){
+        this.Conectar();
+        String query="";
+        query="Select * from AgendaTabla where Id="+ agenda.getId().toString();
+        conexion.execSQL(query);
+        this.Desconectar();
+    }
     public ArrayList<Agenda> getAgenda(){
       ArrayList<Agenda> agendaArrayList = new ArrayList<>();
       this.Conectar();

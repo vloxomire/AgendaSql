@@ -5,12 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Interfaz.Principal">
+
     <Button
+        android:id="@+id/botonRegistrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/botonRegistrar"
-        android:text="Registrar"
-        android:layout_centerHorizontal="true"/>
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="171dp"
+        android:text="Registrar" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

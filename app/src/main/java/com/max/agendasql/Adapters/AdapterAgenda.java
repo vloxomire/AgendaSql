@@ -9,6 +9,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.max.agendasql.Interfaz.ListaVista;
 import com.max.agendasql.Listeners.ListenerImageBorrar;
+import com.max.agendasql.Listeners.ListenerImagenEditar;
 import com.max.agendasql.Models.Agenda;
 import com.max.agendasql.R;
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ public class AdapterAgenda extends BaseAdapter {
     private ArrayList<Agenda> agendaArrayList;
     private ListView listView;
     private ListenerImageBorrar listenerImageBorrar;
+    private ListenerImagenEditar listenerImagenEditar;
 
     public AdapterAgenda(ListaVista context, ArrayList<Agenda> agendaArrayList, ListView listView) {
         this.context = context;
@@ -51,8 +53,9 @@ public class AdapterAgenda extends BaseAdapter {
         v = milayoutInflater.inflate(R.layout.celdas, vGroup, false);
         
         TextView nombre, apellido, telefono, dni,email, calle, altura, pisoDto;
-        ImageButton imageButton;
+        ImageButton imageButton,imagenBotonEditar;
 
+        imagenBotonEditar=v.findViewById(R.id.imagenBotonEditar);
         imageButton=v.findViewById(R.id.imageButtonBorrar);
         nombre = v.findViewById(R.id.tv1);
         apellido = v.findViewById(R.id.tv2);
@@ -65,6 +68,8 @@ public class AdapterAgenda extends BaseAdapter {
 
        listenerImageBorrar= new ListenerImageBorrar(context,listView,agendaArrayList);
         imageButton.setOnClickListener(listenerImageBorrar);
+        listenerImagenEditar=new ListenerImagenEditar(context,listView,agendaArrayList);
+        imagenBotonEditar.setOnClickListener(listenerImagenEditar);
         //agregar new objeto de editar
         //agregar seteo de boton
         
