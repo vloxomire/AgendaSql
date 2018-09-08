@@ -29,7 +29,6 @@ public class ListenerImagenEditar implements View.OnClickListener{
         Integer posicion=listView.getPositionForView(view);
         sqliteAgenda.EditarAgendaSql(agendaArrayList.get(posicion));
 
-
         Intent intentActivity2=new Intent(context, Activity2.class);
         context.startActivity(intentActivity2);
     }

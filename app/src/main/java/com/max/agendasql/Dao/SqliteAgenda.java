@@ -51,7 +51,7 @@ public class SqliteAgenda extends SQLiteOpenHelper{
     public void EditarAgendaSql(Agenda agenda){
         this.Conectar();
         String query="";
-        query="Select * from AgendaTabla where Id="+ agenda.getId().toString();
+        query="select Id from AgendaTabla where Id="+ agenda.getId().toString();
         conexion.execSQL(query);
         this.Desconectar();
     }
