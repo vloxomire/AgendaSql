@@ -48,13 +48,19 @@ public class SqliteAgenda extends SQLiteOpenHelper{
         conexion.execSQL(query);
         this.Desconectar();
     }
-    public void EditarAgendaSql(Agenda agenda){
+    public ArrayList<Agenda> EditarAgendaSql(Agenda agenda){
+        ArrayList<Agenda> agendaArrayList= new ArrayList<>();
         this.Conectar();
         String query="";
-        query="select Id from AgendaTabla where Id="+ agenda.getId().toString();
-        conexion.execSQL(query);
+        query="Select * from AgendaTabla where Id =" + agenda.getId().toString();
+        Cursor cursor=conexion.rawQuery(query, null);
+        while (cursor.moveToNext()){
+            Agenda miAgenda = new Agenda(cursor.getInt(cursor.getColumnIndex("Id")),cursor.getString(cursor.getColumnIndex("Nombre")),cursor.getString(cursor.getColumnIndex("Apellido")),cursor.getInt(cursor.getColumnIndex("Telefono")),cursor.getInt(cursor.getColumnIndex("Dni")),cursor.getString(cursor.getColumnIndex("Email")),cursor.getString(cursor.getColumnIndex("Calle")),cursor.getInt(cursor.getColumnIndex("Altura")),cursor.getInt(cursor.getColumnIndex("PisoDto")));
+           agendaArrayList.add(miAgenda);
+        }
         this.Desconectar();
-    }
+    return agendaArrayList;}
+
     public ArrayList<Agenda> getAgenda(){
       ArrayList<Agenda> agendaArrayList = new ArrayList<>();
       this.Conectar();

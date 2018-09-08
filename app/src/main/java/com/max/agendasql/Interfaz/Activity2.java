@@ -4,9 +4,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.max.agendasql.Dao.SqliteAgenda;
 import com.max.agendasql.Listeners.ListenerGuardar;
 import com.max.agendasql.Listeners.ListenerGuardarLongClick;
+import com.max.agendasql.Models.Agenda;
 import com.max.agendasql.R;
+
+import java.util.ArrayList;
 
 public class Activity2 extends AppCompatActivity {
     private EditText editNombre, editApellido, editTelefono, editDni, editEmail, editCalle, editAltura, editPisoDto;
@@ -69,8 +74,8 @@ public class Activity2 extends AppCompatActivity {
         botonRegistrar.setOnLongClickListener(listenerGuardarLongClick);
 
         Bundle bolsaMain= new Bundle(); //creo el objeto
-        bolsaMain=getIntent().getExtras();
-        //Integer valorBolsaMain=bolsaMain.getInt("Indice");
+        bolsaMain=getIntent().getExtras();//
+        Integer Id=bolsaMain.getInt("Indice", );
 
         //if(valorBolsaMain!=0){
 

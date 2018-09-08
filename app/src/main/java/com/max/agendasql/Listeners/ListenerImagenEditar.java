@@ -25,11 +25,13 @@ public class ListenerImagenEditar implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
+        ArrayList<Agenda>agendaArrayList= new ArrayList<>();
         SqliteAgenda sqliteAgenda=new SqliteAgenda(context);
         Integer posicion=listView.getPositionForView(view);
         sqliteAgenda.EditarAgendaSql(agendaArrayList.get(posicion));
 
         Intent intentActivity2=new Intent(context, Activity2.class);
+        intentActivity2.putStringArrayListExtra("Indice",s);
         context.startActivity(intentActivity2);
     }
 }
