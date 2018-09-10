@@ -32,11 +32,9 @@ public class ListenerGuardar implements View.OnClickListener{
         
         //boolean validacion = funcionValidar(contacto);
         //if(validacion == false) return false; interrumpe el metodo
+      Agenda agenda= new Agenda(null,nombre,apellido,telefono,dni,email,calle,altura,pisoDto);
         if(valor==true){
-        
-    Agenda agenda= new Agenda(null,nombre,apellido,telefono,dni,email,calle,altura,pisoDto);
-    sqliteAgenda.GuardarAgendaSql(agenda);
-
+        sqliteAgenda.GuardarAgendaSql(agenda);
         Toast.makeText(context,"Registro guardado",Toast.LENGTH_LONG).show();
         }else
         {
