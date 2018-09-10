@@ -66,22 +66,28 @@ public class Activity2 extends AppCompatActivity {
         botonRegistrar=findViewById(R.id.botonRegistrar);
 
         ListenerGuardar listenerGuardar = new ListenerGuardar(this);
-        //ListenerVerRegistro listenerVerRegistro=new ListenerVerRegistro(this);
         ListenerGuardarLongClick listenerGuardarLongClick=new ListenerGuardarLongClick(this);
 
         botonRegistrar.setOnClickListener(listenerGuardar);
-        //botonVerRegistro.setOnClickListener(listenerVerRegistro);
         botonRegistrar.setOnLongClickListener(listenerGuardarLongClick);
 
-        Bundle bolsaMain= new Bundle(); //creo el objeto
-        bolsaMain=getIntent().getExtras();//
-        Integer Id=bolsaMain.getInt("Indice", );
-
-        //if(valorBolsaMain!=0){
-
-       // } else if(valorBolsaMain==0){
-
-       //}
+        Bundle bundleEnviados=getIntent().getExtras();
+        Bundle bundleValor=getIntent().getExtras();
+        Boolean dato=bundleValor.getBoolean("Valor");
+        if(dato==false){
+            Agenda agenda=null;
+            if(bundleEnviados!=null){
+                agenda=(Agenda) bundleEnviados.getSerializable("Agenda");
+                editNombre.setText(agenda.getNombre());
+                editApellido.setText(agenda.getApellido());
+                editTelefono.setText(String.valueOf(agenda.getTelefono()));
+                editDni.setText(String.valueOf(agenda.getDni()));
+                editEmail.setText(agenda.getEmail());
+                editCalle.setText(agenda.getCalle());
+                editAltura.setText(String.valueOf(agenda.getAltura()));
+                editPisoDto.setText(String.valueOf(agenda.getPisoDto()));
+            }
+        }
 
 
     }

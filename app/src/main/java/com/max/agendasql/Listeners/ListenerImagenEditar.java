@@ -1,9 +1,12 @@
 package com.max.agendasql.Listeners;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ListView;
 
+import com.max.agendasql.Adapters.AdapterAgenda;
 import com.max.agendasql.Dao.SqliteAgenda;
 import com.max.agendasql.Interfaz.Activity2;
 import com.max.agendasql.Interfaz.ListaVista;
@@ -16,6 +19,7 @@ public class ListenerImagenEditar implements View.OnClickListener{
     SqliteAgenda sqliteAgenda;
     ListView listView;
     ArrayList<Agenda>agendaArrayList;
+   Agenda agenda;
 
     public ListenerImagenEditar(ListaVista context, ListView listView, ArrayList<Agenda> agendaArrayList) {
         this.context = context;
@@ -25,13 +29,18 @@ public class ListenerImagenEditar implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        ArrayList<Agenda>agendaArrayList= new ArrayList<>();
         SqliteAgenda sqliteAgenda=new SqliteAgenda(context);
         Integer posicion=listView.getPositionForView(view);
         sqliteAgenda.EditarAgendaSql(agendaArrayList.get(posicion));
 
+        Agenda agendaEdit=agendaArrayList.get(posicion);
+
         Intent intentActivity2=new Intent(context, Activity2.class);
-        intentActivity2.putStringArrayListExtra("Indice",s);
+
+        Bundle bundleEditar=new Bundle();
+        bundleEditar.putSerializable("Agenda",agendaEdit);
+
+        intentActivity2.putExtras(bundleEditar);
         context.startActivity(intentActivity2);
     }
 }

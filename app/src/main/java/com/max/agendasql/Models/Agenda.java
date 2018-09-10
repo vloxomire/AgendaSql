@@ -1,6 +1,8 @@
 package com.max.agendasql.Models;
 
-public class Agenda {
+import java.io.Serializable;
+
+public class Agenda implements Serializable{
     private Integer id;
     private String nombre;
     private String apellido;
