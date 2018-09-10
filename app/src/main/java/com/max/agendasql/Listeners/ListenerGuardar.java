@@ -2,7 +2,6 @@ package com.max.agendasql.Listeners;
 
 import android.view.View;
 import android.widget.Toast;
-
 import com.max.agendasql.Dao.SqliteAgenda;
 import com.max.agendasql.Interfaz.Activity2;
 import com.max.agendasql.Models.Agenda;
@@ -33,15 +32,15 @@ public class ListenerGuardar implements View.OnClickListener{
         
         //boolean validacion = funcionValidar(contacto);
         //if(validacion == false) return false; interrumpe el metodo
-        
-        
-        
+        if(valor==true){
         
     Agenda agenda= new Agenda(null,nombre,apellido,telefono,dni,email,calle,altura,pisoDto);
     sqliteAgenda.GuardarAgendaSql(agenda);
 
         Toast.makeText(context,"Registro guardado",Toast.LENGTH_LONG).show();
-
+        }else
+        {
+        }
         context.getEditNombre().setText("");
         context.getEditApellido().setText("");
         context.getEditTelefono().setText("");
