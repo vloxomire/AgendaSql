@@ -63,7 +63,8 @@ public class SqliteAgenda extends SQLiteOpenHelper{
     //public void Actualizar(Agenda agenda){
        // this.Conectar();
       //  String query="";
-       // query="Alter table AgendaTabla drop index Dni";
+        //query="Update AgendaTabla (Nombre,Apellido,Telefono,Email,Calle,Altura,PisoDto) values('" +agenda.getNombre()+"','"+agenda.getApellido()+"','"+agenda.getTelefono()+"','"+agenda.getEmail()+"','"+agenda.getCalle()+"',"+agenda.getAltura()+",'"+agenda.getPisoDto()+ "')where Dni =" + agenda.getDni().toString();
+       // query="Alter table AgendaTabla drop index Dni";(para quitar el unique)
        // conexion.execSQL(query);
        // this.Desconectar();
     //}
