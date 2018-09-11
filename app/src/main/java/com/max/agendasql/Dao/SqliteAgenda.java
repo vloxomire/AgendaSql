@@ -1,8 +1,11 @@
 package com.max.agendasql.Dao;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.inputmethodservice.Keyboard;
+
 import com.max.agendasql.Models.Agenda;
 
 import java.util.ArrayList;
@@ -34,12 +37,13 @@ public class SqliteAgenda extends SQLiteOpenHelper{
     private void Desconectar(){
         conexion.close();
     }
+
     public void GuardarAgendaSql(Agenda agenda){
-    this.Conectar();
-    String query="";
-    query="insert into AgendaTabla (Nombre,Apellido,Telefono,Dni,Email,Calle,Altura,PisoDto) values('" +agenda.getNombre()+"','"+agenda.getApellido()+"','"+agenda.getTelefono()+"',"+agenda.getDni()+",'"+agenda.getEmail()+"','"+agenda.getCalle()+"',"+agenda.getAltura()+",'"+agenda.getPisoDto()+ "')";
-    conexion.execSQL(query);
-    this.Desconectar();
+        this.Conectar();
+        String query="";
+        query="insert into AgendaTabla (Nombre,Apellido,Telefono,Dni,Email,Calle,Altura,PisoDto) values('" +agenda.getNombre()+"','"+agenda.getApellido()+"','"+agenda.getTelefono()+"',"+agenda.getDni()+",'"+agenda.getEmail()+"','"+agenda.getCalle()+"',"+agenda.getAltura()+",'"+agenda.getPisoDto()+ "')";
+        conexion.execSQL(query);
+        this.Desconectar();
     }
     public void BorrarAgendaSql(Agenda agenda){
         this.Conectar();
@@ -48,26 +52,35 @@ public class SqliteAgenda extends SQLiteOpenHelper{
         conexion.execSQL(query);
         this.Desconectar();
     }
-    public ArrayList<Agenda> EditarAgendaSql(Agenda agenda){
-        ArrayList<Agenda> agendaArrayList= new ArrayList<>();
+    public Agenda getAgendaPorID(Integer id){
         this.Conectar();
+        Agenda miAgenda = null;
         String query="";
-        query="Select * from AgendaTabla where Id =" + agenda.getId().toString();
+        query="Select * from AgendaTabla where Id =" + id.toString();
         Cursor cursor=conexion.rawQuery(query, null);
         while (cursor.moveToNext()){
-            Agenda miAgenda = new Agenda(cursor.getInt(cursor.getColumnIndex("Id")),cursor.getString(cursor.getColumnIndex("Nombre")),cursor.getString(cursor.getColumnIndex("Apellido")),cursor.getInt(cursor.getColumnIndex("Telefono")),cursor.getInt(cursor.getColumnIndex("Dni")),cursor.getString(cursor.getColumnIndex("Email")),cursor.getString(cursor.getColumnIndex("Calle")),cursor.getInt(cursor.getColumnIndex("Altura")),cursor.getInt(cursor.getColumnIndex("PisoDto")));
-           agendaArrayList.add(miAgenda);
+            miAgenda = new Agenda(cursor.getInt(cursor.getColumnIndex("Id")),cursor.getString(cursor.getColumnIndex("Nombre")),cursor.getString(cursor.getColumnIndex("Apellido")),cursor.getInt(cursor.getColumnIndex("Telefono")),cursor.getInt(cursor.getColumnIndex("Dni")),cursor.getString(cursor.getColumnIndex("Email")),cursor.getString(cursor.getColumnIndex("Calle")),cursor.getInt(cursor.getColumnIndex("Altura")),cursor.getInt(cursor.getColumnIndex("PisoDto")));
         }
         this.Desconectar();
-    return agendaArrayList;}
-    //public void Actualizar(Agenda agenda){
-       // this.Conectar();
-      //  String query="";
-        //query="Update AgendaTabla (Nombre,Apellido,Telefono,Email,Calle,Altura,PisoDto) values('" +agenda.getNombre()+"','"+agenda.getApellido()+"','"+agenda.getTelefono()+"','"+agenda.getEmail()+"','"+agenda.getCalle()+"',"+agenda.getAltura()+",'"+agenda.getPisoDto()+ "')where Dni =" + agenda.getDni().toString();
-       // query="Alter table AgendaTabla drop index Dni";(para quitar el unique)
-       // conexion.execSQL(query);
-       // this.Desconectar();
-    //}
+    return miAgenda;
+    }
+    public void actualizar(Agenda agenda){
+       this.Conectar();
+
+        ContentValues row = new ContentValues();
+
+        row.put("Nombre", agenda.getNombre());
+        row.put("Apellido", agenda.getApellido());
+        row.put("Telefono", agenda.getTelefono().toString());
+        row.put("Dni", agenda.getDni().toString());
+        row.put("Email", agenda.getEmail());
+        row.put("Calle", agenda.getCalle());
+        row.put("Altura", agenda.getAltura().toString());
+        row.put("PisoDto", agenda.getPisoDto().toString());
+        conexion.update("AgendaTabla", row,"Id = " + agenda.getId(), null);
+
+        this.Desconectar();
+    }
 
     public ArrayList<Agenda> getAgenda(){
       ArrayList<Agenda> agendaArrayList = new ArrayList<>();

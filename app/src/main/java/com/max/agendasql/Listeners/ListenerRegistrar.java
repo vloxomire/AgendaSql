@@ -16,9 +16,7 @@ public class ListenerRegistrar implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         Intent intentRegistrar= new Intent(context, Activity2.class);
-        Bundle bundlevalor=new Bundle();
-        intentRegistrar.putExtra("Valor",true);
-        //Necesito un Bundle antes en el activity q paso
+       intentRegistrar.putExtra("ID", 0);
         context.startActivity(intentRegistrar);
     }
 }

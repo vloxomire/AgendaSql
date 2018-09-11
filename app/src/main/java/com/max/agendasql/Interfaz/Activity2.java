@@ -17,7 +17,13 @@ import java.util.ArrayList;
 public class Activity2 extends AppCompatActivity {
     private EditText editNombre, editApellido, editTelefono, editDni, editEmail, editCalle, editAltura, editPisoDto;
     private Button botonRegistrar;
+    private Integer id;
+    private SqliteAgenda sqliteAgenda;
     private ListenerGuardarLongClick listenerGuardarLongClick;
+
+    public Integer getId() {
+        return id;
+    }
 
     public EditText getEditNombre() {
         return editNombre;
@@ -60,7 +66,9 @@ public class Activity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Bundle bundleEnviados = getIntent().getExtras();
 
+        id = bundleEnviados.getInt("ID");
 
         editNombre =findViewById(R.id.et1);
         editApellido =findViewById(R.id.et2);
@@ -73,32 +81,24 @@ public class Activity2 extends AppCompatActivity {
         botonRegistrar=findViewById(R.id.botonRegistrar);
 
         ListenerGuardar listenerGuardar = new ListenerGuardar(this);
-        ListenerGuardarLongClick listenerGuardarLongClick=new ListenerGuardarLongClick(this);
+        //ListenerGuardarLongClick listenerGuardarLongClick=new ListenerGuardarLongClick(this);
 
         botonRegistrar.setOnClickListener(listenerGuardar);
         botonRegistrar.setOnLongClickListener(listenerGuardarLongClick);
 
-        Bundle bundleEnviados=getIntent().getExtras();
-        Bundle bundleValor=getIntent().getExtras();
-        Boolean dato=bundleValor.getBoolean("Valor");
-        if(dato==false){
-            Agenda agenda=null;
-            if(bundleEnviados!=null){
-                getBotonRegistrar().setText("Actualizar");
 
-                agenda=(Agenda) bundleEnviados.getSerializable("Agenda");
-                //ListenerActualizar listenerActualizar=new ListenerActualizar(this);
-                //botonRegistrar.setOnClickListener(listenerActualizar);
+        if(!id.equals(0)) {
+            sqliteAgenda = new SqliteAgenda(this);
+            Agenda agenda = sqliteAgenda.getAgendaPorID(id);
 
-                editNombre.setText(agenda.getNombre());
-                editApellido.setText(agenda.getApellido());
-                editTelefono.setText(String.valueOf(agenda.getTelefono()));
-                editDni.setText(String.valueOf(agenda.getDni()));
-                editEmail.setText(agenda.getEmail());
-                editCalle.setText(agenda.getCalle());
-                editAltura.setText(String.valueOf(agenda.getAltura()));
-                editPisoDto.setText(String.valueOf(agenda.getPisoDto()));
-            }
+            editNombre.setText(agenda.getNombre());
+            editApellido.setText(agenda.getApellido());
+            editTelefono.setText(String.valueOf(agenda.getTelefono()));
+            editDni.setText(String.valueOf(agenda.getDni()));
+            editEmail.setText(agenda.getEmail());
+            editCalle.setText(agenda.getCalle());
+            editAltura.setText(String.valueOf(agenda.getAltura()));
+            editPisoDto.setText(String.valueOf(agenda.getPisoDto()));
         }
 
 

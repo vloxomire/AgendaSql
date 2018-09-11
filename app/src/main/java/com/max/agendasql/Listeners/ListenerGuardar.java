@@ -16,29 +16,29 @@ public class ListenerGuardar implements View.OnClickListener{
 
     @Override
     public void onClick(View vRegistrar) {
-    SqliteAgenda sqliteAgenda= new SqliteAgenda(context);
-    String nombre= context.getEditNombre().getText().toString();
-    String apellido=context.getEditApellido().getText().toString();
-    Integer telefono=Integer.parseInt(context.getEditTelefono().getText().toString());
-    Integer dni=Integer.parseInt(context.getEditDni().getText().toString());
-    String email=context.getEditEmail().getText().toString();
-    String calle=context.getEditCalle().getText().toString();
-    Integer altura=Integer.parseInt(context.getEditAltura().getText().toString());
-    Integer pisoDto=Integer.parseInt(context.getEditPisoDto().getText().toString());
+        SqliteAgenda sqliteAgenda= new SqliteAgenda(context);
+        String nombre= context.getEditNombre().getText().toString();
+        String apellido=context.getEditApellido().getText().toString();
+        Integer telefono=Integer.parseInt(context.getEditTelefono().getText().toString());
+        Integer dni=Integer.parseInt(context.getEditDni().getText().toString());
+        String email=context.getEditEmail().getText().toString();
+        String calle=context.getEditCalle().getText().toString();
+        Integer altura=Integer.parseInt(context.getEditAltura().getText().toString());
+        Integer pisoDto=Integer.parseInt(context.getEditPisoDto().getText().toString());
 
-      Agenda agenda= new Agenda(null,nombre,apellido,telefono,dni,email,calle,altura,pisoDto);
+        Agenda agenda= new Agenda(context.getId(),nombre,apellido,telefono,dni,email,calle,altura,pisoDto);
 
-        sqliteAgenda.GuardarAgendaSql(agenda);
+        if(context.getId().equals(0)){
+            sqliteAgenda.GuardarAgendaSql(agenda);
+        }else{
+            sqliteAgenda.actualizar(agenda);
+        }
+
+
 
         Toast.makeText(context,"Registro guardado",Toast.LENGTH_LONG).show();
 
-        context.getEditNombre().setText("");
-        context.getEditApellido().setText("");
-        context.getEditTelefono().setText("");
-        context.getEditDni().setText("");
-        context.getEditEmail().setText("");
-        context.getEditCalle().setText("");
-        context.getEditAltura().setText("");
-        context.getEditPisoDto().setText("");
+        context.onBackPressed();
+
     }
 }

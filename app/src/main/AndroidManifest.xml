@@ -10,16 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:parentActivityName=".Interfaz.Principal"
             android:name=".Interfaz.Activity2"
             android:theme="@style/Theme.AppCompat.NoActionBar">
-
+            
         </activity>
         <activity android:name=".Interfaz.ListaVista">
-            <intent-filter>
-                <action android:name="android.intent.action.LISTAVISTA" />
 
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </activity>
         <activity android:name=".Interfaz.Principal">
             <intent-filter>

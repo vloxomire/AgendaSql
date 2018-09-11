@@ -31,16 +31,14 @@ public class ListenerImagenEditar implements View.OnClickListener{
     public void onClick(View view) {
         SqliteAgenda sqliteAgenda=new SqliteAgenda(context);
         Integer posicion=listView.getPositionForView(view);
-        sqliteAgenda.EditarAgendaSql(agendaArrayList.get(posicion));
+
 
         Agenda agendaEdit=agendaArrayList.get(posicion);
 
-        Intent intentActivity2=new Intent(context, Activity2.class);
+        Intent intentActivity2 = new Intent(context, Activity2.class);
 
-        Bundle bundleEditar=new Bundle();
-        bundleEditar.putSerializable("Agenda",agendaEdit);
+        intentActivity2.putExtra("ID", agendaEdit.getId());
 
-        intentActivity2.putExtras(bundleEditar);
         context.startActivity(intentActivity2);
     }
 }
