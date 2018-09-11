@@ -25,22 +25,13 @@ public class ListenerGuardar implements View.OnClickListener{
     String calle=context.getEditCalle().getText().toString();
     Integer altura=Integer.parseInt(context.getEditAltura().getText().toString());
     Integer pisoDto=Integer.parseInt(context.getEditPisoDto().getText().toString());
-        
-        //metodo validar,carga.Pasar contexto
-        //en la funcion validar (tue or false)levanto los datos otra ves if(){toast...falta dato xxx}
-        //el valor de retorno de la funcion lo valido en el siguiente paso
-        
-        //boolean validacion = funcionValidar(contacto);
-        //if(validacion == false) return false; interrumpe el metodo
+
       Agenda agenda= new Agenda(null,nombre,apellido,telefono,dni,email,calle,altura,pisoDto);
-        if((context.getEditNombre().setText("");!=("")){
-            sqliteAgenda.onUpgrade(agenda);
-            Toast.makeText(context,"Registro actualizado",Toast.LENGTH_LONG).show();
-        }else
-        {
-            sqliteAgenda.GuardarAgendaSql(agenda);
-            Toast.makeText(context,"Registro guardado",Toast.LENGTH_LONG).show();
-        }
+
+        sqliteAgenda.GuardarAgendaSql(agenda);
+
+        Toast.makeText(context,"Registro guardado",Toast.LENGTH_LONG).show();
+
         context.getEditNombre().setText("");
         context.getEditApellido().setText("");
         context.getEditTelefono().setText("");

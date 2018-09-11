@@ -142,6 +142,7 @@
             android:id="@+id/tv7"
             android:layout_width="136dp"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:text="PisoDto" />
         </LinearLayout>
 

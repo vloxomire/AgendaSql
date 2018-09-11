@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.max.agendasql.Dao.SqliteAgenda;
+import com.max.agendasql.Listeners.ListenerActualizar;
 import com.max.agendasql.Listeners.ListenerGuardar;
 import com.max.agendasql.Listeners.ListenerGuardarLongClick;
 import com.max.agendasql.Models.Agenda;
@@ -50,10 +51,16 @@ public class Activity2 extends AppCompatActivity {
         return editPisoDto;
     }
 
+    public Button getBotonRegistrar() {
+        return botonRegistrar;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         editNombre =findViewById(R.id.et1);
         editApellido =findViewById(R.id.et2);
@@ -77,7 +84,12 @@ public class Activity2 extends AppCompatActivity {
         if(dato==false){
             Agenda agenda=null;
             if(bundleEnviados!=null){
+                getBotonRegistrar().setText("Actualizar");
+
                 agenda=(Agenda) bundleEnviados.getSerializable("Agenda");
+                //ListenerActualizar listenerActualizar=new ListenerActualizar(this);
+                //botonRegistrar.setOnClickListener(listenerActualizar);
+
                 editNombre.setText(agenda.getNombre());
                 editApellido.setText(agenda.getApellido());
                 editTelefono.setText(String.valueOf(agenda.getTelefono()));

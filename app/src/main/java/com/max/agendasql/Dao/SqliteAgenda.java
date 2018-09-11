@@ -60,6 +60,13 @@ public class SqliteAgenda extends SQLiteOpenHelper{
         }
         this.Desconectar();
     return agendaArrayList;}
+    //public void Actualizar(Agenda agenda){
+       // this.Conectar();
+      //  String query="";
+       // query="Alter table AgendaTabla drop index Dni";
+       // conexion.execSQL(query);
+       // this.Desconectar();
+    //}
 
     public ArrayList<Agenda> getAgenda(){
       ArrayList<Agenda> agendaArrayList = new ArrayList<>();
