@@ -13,7 +13,10 @@
             android:parentActivityName=".Interfaz.Principal"
             android:name=".Interfaz.Activity2"
             android:theme="@style/Theme.AppCompat.NoActionBar">
-            
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Interfaz.Principal" />
+
         </activity>
         <activity android:name=".Interfaz.ListaVista">
 

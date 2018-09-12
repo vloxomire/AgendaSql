@@ -40,5 +40,6 @@ public class ListenerImagenEditar implements View.OnClickListener{
         intentActivity2.putExtra("ID", agendaEdit.getId());
 
         context.startActivity(intentActivity2);
+        context.finish();
     }
 }
