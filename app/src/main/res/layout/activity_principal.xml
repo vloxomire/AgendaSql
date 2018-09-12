@@ -2,24 +2,22 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    style="@style/Layout_Listados"
     tools:context=".Interfaz.Principal">
 
     <Button
+        style="@style/botones"
+
         android:id="@+id/botonRegistrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="171dp"
-        android:text="Registrar" />
+        android:text="@string/registrar" />
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/botonVerListado"
+        style="@style/botones"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:text="Ver_Listado"/>
+        android:id="@+id/botonVerListado"
+        android:text="@string/ver_listado"/>
 
 </RelativeLayout>

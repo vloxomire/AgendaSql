@@ -86,7 +86,6 @@ public class Activity2 extends AppCompatActivity {
         botonRegistrar.setOnClickListener(listenerGuardar);
         botonRegistrar.setOnLongClickListener(listenerGuardarLongClick);
 
-
         if(!id.equals(0)) {
             sqliteAgenda = new SqliteAgenda(this);
             Agenda agenda = sqliteAgenda.getAgendaPorID(id);
