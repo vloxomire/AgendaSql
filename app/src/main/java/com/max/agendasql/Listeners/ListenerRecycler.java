@@ -15,8 +15,7 @@ public class ListenerRecycler implements View.OnClickListener{
 
     @Override
   public void onClick(View vRecycler){
-    Intent intentRecycler;
-      intentRecycler = new Intent(context,Recycler.class);
+    Intent intentRecycler = new Intent(context,Recycler.class);
       context.startActivity(intentRecycler);
   }
 }

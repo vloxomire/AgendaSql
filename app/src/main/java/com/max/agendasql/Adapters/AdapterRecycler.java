@@ -20,7 +20,6 @@ public class AdapterRecycler extends RecyclerView.Adapter{
     public AdapterRecycler(Context context, ArrayList<Agenda> agendaArraylist) {
         this.context = context;
         this.agendaArraylist = agendaArraylist;
-        this.listenerRecycler= listenerRecycler;
     }
 
     @NonNull
@@ -36,10 +35,10 @@ public class AdapterRecycler extends RecyclerView.Adapter{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int posicionRecycler) {
-        Agenda agenda=agendaArraylist.get(posicionRecycler);
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int posicion) {
+        Agenda agendaRecycler=agendaArraylist.get(posicion);
         AgendaViewHolder agendaViewHolder=(AgendaViewHolder)holder;
-        agendaViewHolder.cargarAgenda(agenda);
+        agendaViewHolder.cargarAgenda(agendaRecycler);
     }
 
     @Override
@@ -60,15 +59,16 @@ public class AdapterRecycler extends RecyclerView.Adapter{
             pisoDto = itemView.findViewById(R.id.tv7);
             email = itemView.findViewById(R.id.tv8);
         }
-        public void cargarAgenda(Agenda agenda){
-            nombre.setText(agenda.getNombre());
-            apellido.setText(agenda.getApellido());
-            telefono.setText(agenda.getTelefono());
-            dni.setText(agenda.getDni());
-            calle.setText(agenda.getCalle());
-            altura.setText(agenda.getAltura());
-            pisoDto.setText(agenda.getPisoDto());
-            email.setText(agenda.getEmail());
+
+        public void cargarAgenda(Agenda agendaRecycler){
+            nombre.setText(agendaRecycler.getNombre());
+            apellido.setText(agendaRecycler.getApellido());
+            telefono.setText(agendaRecycler.getTelefono());
+            dni.setText(agendaRecycler.getDni());
+            calle.setText(agendaRecycler.getCalle());
+            altura.setText(agendaRecycler.getAltura());
+            pisoDto.setText(agendaRecycler.getPisoDto());
+            email.setText(agendaRecycler.getEmail());
         }
     }
 }
