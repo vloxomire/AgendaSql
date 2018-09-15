@@ -20,6 +20,7 @@ public class AdapterRecycler extends RecyclerView.Adapter{
     public AdapterRecycler(Context context, ArrayList<Agenda> agendaArraylist) {
         this.context = context;
         this.agendaArraylist = agendaArraylist;
+        this.listenerRecycler= listenerRecycler;
     }
 
     @NonNull
