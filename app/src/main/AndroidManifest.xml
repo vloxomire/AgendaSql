@@ -21,6 +21,9 @@
         <activity android:name=".Interfaz.ListaVista">
 
         </activity>
+        <activity android:name=".Interfaz.Recycler">
+
+        </activity>
         <activity android:name=".Interfaz.Principal">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
