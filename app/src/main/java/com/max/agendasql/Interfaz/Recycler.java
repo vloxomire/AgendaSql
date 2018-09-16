@@ -6,9 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.CheckBox;
 
 import com.max.agendasql.Adapters.AdapterRecycler;
 import com.max.agendasql.Dao.SqliteAgenda;
+import com.max.agendasql.Listeners.ListenerCheckDni;
+import com.max.agendasql.Listeners.ListenerCheckNombre;
 import com.max.agendasql.Models.Agenda;
 import com.max.agendasql.R;
 
@@ -19,7 +22,7 @@ public class Recycler extends AppCompatActivity{
     private ArrayList<Agenda>agendaArrayList;
     private AdapterRecycler adapterRecycler;
     private RecyclerView recyclerView;
-    private CardView cardView;
+    private CheckBox checkBoxNombre,checkBoxDni;
 
     public ArrayList<Agenda> getAgendaArrayList() {
         return agendaArrayList;
@@ -33,7 +36,16 @@ public class Recycler extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recyclerview);
 
+        checkBoxNombre=findViewById(R.id.ChkNombre);
+        checkBoxDni=findViewById(R.id.ChkDni);
         recyclerView=findViewById(R.id.recyclerXml);
+
+        ListenerCheckNombre listenerCheckNombre=new ListenerCheckNombre(this,recyclerView,agendaArrayList);
+        checkBoxNombre.setOnClickListener(listenerCheckNombre);
+
+        ListenerCheckDni listenerCheckDni=new ListenerCheckDni(this,recyclerView,agendaArrayList);
+        checkBoxDni.setOnClickListener(listenerCheckDni);
+
         SqliteAgenda sqliteAgenda=new SqliteAgenda(this);
         agendaArrayList=sqliteAgenda.getAgenda();
         adapterRecycler=new AdapterRecycler(this,agendaArrayList);
