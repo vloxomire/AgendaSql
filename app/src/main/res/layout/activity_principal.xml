@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/Layout_Listados"
     tools:context=".Interfaz.Principal">
@@ -28,5 +29,17 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="176dp"
         android:text="Recycler" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="25dp"
+        android:layout_marginEnd="23dp"
+        android:clickable="true"
+        app:srcCompat="@android:drawable/ic_menu_add"
+        android:labelFor="@+id/Registrar"/>
 
 </RelativeLayout>
