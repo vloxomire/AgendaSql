@@ -8,7 +8,6 @@
 
     <Button
         style="@style/botones"
-
         android:id="@+id/botonRegistrar"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -22,18 +21,17 @@
         android:text="@string/ver_listado"/>
 
     <Button
+        style="@style/botones"
         android:id="@+id/botonRecycler"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="176dp"
-        android:text="Recycler" />
+        android:text="Reciclado" />
 
     <android.support.design.widget.FloatingActionButton
+
+        style="@style/fab"
         android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="25dp"

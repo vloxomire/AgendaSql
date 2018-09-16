@@ -4,12 +4,38 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".Interfaz.Recycler">
-    <android.support.v7.widget.RecyclerView
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@color/ambar"
+        android:id="@+id/Linear1"
+        android:orientation="horizontal">
+        <CheckBox
+            style="@style/chequeadores"
+            android:text="Nombre"
+            android:id="@+id/ChkNombre"
+            />
+        <CheckBox
+            style="@style/chequeadores"
+            android:text="Dni"
+            android:id="@+id/ChkDni"/>
+    </LinearLayout>
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/recyclerXml">
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/Linear1">
 
-    </android.support.v7.widget.RecyclerView>
+        <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/recyclerXml"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true">
+
+        </android.support.v7.widget.RecyclerView>
+    </RelativeLayout>
+
+
 
 </RelativeLayout>
