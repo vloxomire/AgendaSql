@@ -52,6 +52,13 @@ public class SqliteAgenda extends SQLiteOpenHelper{
         conexion.execSQL(query);
         this.Desconectar();
     }
+    public void ordenarAgendaNombreSql(Agenda agenda){
+        this.Conectar();
+        String query="";
+        query="select from AgendaTabla where Nombre =" + agenda.getNombre();
+        conexion.execSQL(query);
+        this.Desconectar();
+    }
     public Agenda getAgendaPorID(Integer id){
         this.Conectar();
         Agenda miAgenda = null;

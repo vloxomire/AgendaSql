@@ -1,13 +1,12 @@
 package com.max.agendasql.Interfaz;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.CheckBox;
 
+import com.max.agendasql.Adapters.AdapterAgenda;
 import com.max.agendasql.Adapters.AdapterRecycler;
 import com.max.agendasql.Dao.SqliteAgenda;
 import com.max.agendasql.Listeners.ListenerCheckDni;
@@ -24,9 +23,6 @@ public class Recycler extends AppCompatActivity{
     private RecyclerView recyclerView;
     private CheckBox checkBoxNombre,checkBoxDni;
 
-    public ArrayList<Agenda> getAgendaArrayList() {
-        return agendaArrayList;
-    }
 
     public AdapterRecycler getAdapterRecycler() {
         return adapterRecycler;
@@ -40,7 +36,7 @@ public class Recycler extends AppCompatActivity{
         checkBoxDni=findViewById(R.id.ChkDni);
         recyclerView=findViewById(R.id.recyclerXml);
 
-        ListenerCheckNombre listenerCheckNombre=new ListenerCheckNombre(this,recyclerView,agendaArrayList);
+        ListenerCheckNombre listenerCheckNombre=new ListenerCheckNombre(this,agendaArrayList);
         checkBoxNombre.setOnClickListener(listenerCheckNombre);
 
         ListenerCheckDni listenerCheckDni=new ListenerCheckDni(this,recyclerView,agendaArrayList);

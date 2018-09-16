@@ -25,6 +25,10 @@ public class AdapterRecycler extends RecyclerView.Adapter{
 
     }
 
+    public void setAgendaArrayList(ArrayList<Agenda> agendaArrayList) {
+        this.agendaArrayList = agendaArrayList;
+    }
+
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
