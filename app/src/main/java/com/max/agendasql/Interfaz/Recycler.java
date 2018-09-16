@@ -3,6 +3,7 @@ package com.max.agendasql.Interfaz;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -18,6 +19,7 @@ public class Recycler extends AppCompatActivity{
     private ArrayList<Agenda>agendaArrayList;
     private AdapterRecycler adapterRecycler;
     private RecyclerView recyclerView;
+    private CardView cardView;
 
     public ArrayList<Agenda> getAgendaArrayList() {
         return agendaArrayList;

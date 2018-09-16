@@ -13,63 +13,73 @@ import com.max.agendasql.R;
 import java.util.ArrayList;
 
 public class AdapterRecycler extends RecyclerView.Adapter{
-  private Context context;
-  private ArrayList<Agenda>agendaArraylist;
-  private ListenerRecycler listenerRecycler;
+    private Context context;
+    private ArrayList<Agenda> agendaArrayList;
+    private ListenerRecycler listenerRecycler;
 
-    public AdapterRecycler(Context context, ArrayList<Agenda> agendaArraylist) {
+    public AdapterRecycler(Context context,ArrayList<Agenda> agendaArrayList)
+    {
         this.context = context;
-        this.agendaArraylist = agendaArraylist;
+        this.agendaArrayList = agendaArrayList;
+        this.listenerRecycler = listenerRecycler;
+
     }
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup vGRecycler, int posicionRecycler) {
-        LayoutInflater inflaterRecycler=LayoutInflater.from(context);
-        View vRecycler=inflaterRecycler.inflate(R.layout.recyclerview,vGRecycler,false);
-        vRecycler.setOnClickListener(listenerRecycler);
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
+    {
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View viewDelacelda = inflater.inflate(R.layout.item_cardview,parent,false);
+        viewDelacelda.setOnClickListener(listenerRecycler);
 
-        AgendaViewHolder agendaViewHolder=new AgendaViewHolder(vRecycler);
+        AgendaViewHolder agendaViewHolder = new AgendaViewHolder(viewDelacelda);
 
         return agendaViewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int posicion) {
-        Agenda agendaRecycler=agendaArraylist.get(posicion);
-        AgendaViewHolder agendaViewHolder=(AgendaViewHolder)holder;
-        agendaViewHolder.cargarAgenda(agendaRecycler);
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position)
+    {
+        Agenda unAgenda =  agendaArrayList.get(position);
+        AgendaViewHolder agendaViewHolder = (AgendaViewHolder)holder;
+        agendaViewHolder.cargarAgenda(unAgenda);
     }
 
     @Override
-    public int getItemCount() {
-        return agendaArraylist.size();
+    public int getItemCount()
+    {
+        return agendaArrayList.size();
     }
-    private class AgendaViewHolder extends RecyclerView.ViewHolder{
+
+
+    private class AgendaViewHolder extends RecyclerView.ViewHolder
+    {
         private TextView nombre,apellido,telefono,dni,calle,altura,pisoDto,email;
 
-        public AgendaViewHolder(@NonNull View itemView) {
+        public AgendaViewHolder(@NonNull View itemView)
+        {
             super(itemView);
-            nombre = itemView.findViewById(R.id.tv1);
-            apellido = itemView.findViewById(R.id.tv2);
-            telefono = itemView.findViewById(R.id.tv3);
-            dni = itemView.findViewById(R.id.tv4);
-            calle = itemView.findViewById(R.id.tv5);
-            altura = itemView.findViewById(R.id.tv6);
-            pisoDto = itemView.findViewById(R.id.tv7);
-            email = itemView.findViewById(R.id.tv8);
+            nombre = itemView.findViewById(R.id.tvNombreCard);
+            apellido = itemView.findViewById(R.id.tvApellidoCard);
+            telefono = itemView.findViewById(R.id.tvTelefonoCard);
+            dni = itemView.findViewById(R.id.tvDniCard);
+            calle = itemView.findViewById(R.id.tvCalleCard);
+            altura = itemView.findViewById(R.id.tvAlturaCard);
+            pisoDto = itemView.findViewById(R.id.tvPisoDtoCard);
+            email = itemView.findViewById(R.id.tvEmailCard);
         }
 
-        public void cargarAgenda(Agenda agendaRecycler){
-            nombre.setText(agendaRecycler.getNombre());
-            apellido.setText(agendaRecycler.getApellido());
-            telefono.setText(agendaRecycler.getTelefono());
-            dni.setText(agendaRecycler.getDni());
-            calle.setText(agendaRecycler.getCalle());
-            altura.setText(agendaRecycler.getAltura());
-            pisoDto.setText(agendaRecycler.getPisoDto());
-            email.setText(agendaRecycler.getEmail());
+        public void cargarAgenda (Agenda unaAgenda)
+        {
+            nombre.setText(unaAgenda.getNombre());
+            apellido.setText(unaAgenda.getApellido());
+            telefono.setText(unaAgenda.getTelefono().toString());
+            dni.setText(unaAgenda.getDni().toString());
+            calle.setText(unaAgenda.getCalle());
+            altura.setText(unaAgenda.getAltura().toString());
+            pisoDto.setText(unaAgenda.getPisoDto().toString());
+            email.setText(unaAgenda.getEmail());
         }
     }
 }
-  

@@ -25,7 +25,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tv1"
+                android:id="@+id/tvNombreCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Nombre" />
@@ -37,7 +37,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tv3"
+                android:id="@+id/tvTelefonoCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Telefono" />
@@ -57,7 +57,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tv2"
+                android:id="@+id/tvApellidoCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Apellido" />
@@ -69,7 +69,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tv4"
+                android:id="@+id/tvDniCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Dni" />
@@ -95,7 +95,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/tv5"
+                    android:id="@+id/tvCalleCard"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Calle" />
@@ -107,7 +107,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/tv8"
+                    android:id="@+id/tvEmailCard"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Email" />
@@ -126,7 +126,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/tv6"
+                    android:id="@+id/tvAlturaCard"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
@@ -146,7 +146,7 @@
 
 
                 <TextView
-                    android:id="@+id/tv7"
+                    android:id="@+id/tvPisoDtoCard"
                     android:layout_width="136dp"
                     android:layout_height="wrap_content"
                     android:inputType="number"
