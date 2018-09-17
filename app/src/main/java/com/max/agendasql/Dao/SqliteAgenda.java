@@ -58,8 +58,10 @@ public class SqliteAgenda extends SQLiteOpenHelper{
         query="select Nombre,Apellido,Telefono,Dni,Email,Calle,Altura,PisoDto from AgendaTabla order by Nombre desc";
         Cursor cursor=conexion.rawQuery(query, null);
         while (cursor.moveToNext()){
-        conexion.execSQL(query);
+           miAgenda = new Agenda(cursor.getInt(cursor.getColumnIndex("Id")),cursor.getString(cursor.getColumnIndex("Nombre")),cursor.getString(cursor.getColumnIndex("Apellido")),cursor.getInt(cursor.getColumnIndex("Telefono")),cursor.getInt(cursor.getColumnIndex("Dni")),cursor.getString(cursor.getColumnIndex("Email")),cursor.getString(cursor.getColumnIndex("Calle")),cursor.getInt(cursor.getColumnIndex("Altura")),cursor.getInt(cursor.getColumnIndex("PisoDto")));
+        }
         this.Desconectar();
+        return miAgenda;
     }
     public void ordenarPorDniSql(Agenda agenda){
         this.Conectar();
@@ -67,8 +69,10 @@ public class SqliteAgenda extends SQLiteOpenHelper{
         query="select Nombre,Apellido,Telefono,Dni,Email,Calle,Altura,PisoDto from AgendaTabla order by Dni desc";
         Cursor cursor=conexion.rawQuery(query, null);
         while (cursor.moveToNext()){
-        conexion.execSQL(query);
+          miAgenda = new Agenda(cursor.getInt(cursor.getColumnIndex("Id")),cursor.getString(cursor.getColumnIndex("Nombre")),cursor.getString(cursor.getColumnIndex("Apellido")),cursor.getInt(cursor.getColumnIndex("Telefono")),cursor.getInt(cursor.getColumnIndex("Dni")),cursor.getString(cursor.getColumnIndex("Email")),cursor.getString(cursor.getColumnIndex("Calle")),cursor.getInt(cursor.getColumnIndex("Altura")),cursor.getInt(cursor.getColumnIndex("PisoDto")));
+        }
         this.Desconectar();
+        return miAgenda;
     }
     public Agenda getAgendaPorID(Integer id){
         this.Conectar();
