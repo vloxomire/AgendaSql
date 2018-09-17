@@ -5,8 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.CheckBox;
-
-import com.max.agendasql.Adapters.AdapterAgenda;
 import com.max.agendasql.Adapters.AdapterRecycler;
 import com.max.agendasql.Dao.SqliteAgenda;
 import com.max.agendasql.Listeners.ListenerCheckDni;

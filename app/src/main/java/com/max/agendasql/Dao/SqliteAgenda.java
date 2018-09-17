@@ -52,10 +52,17 @@ public class SqliteAgenda extends SQLiteOpenHelper{
         conexion.execSQL(query);
         this.Desconectar();
     }
-    public void ordenarAgendaNombreSql(Agenda agenda){
+    public void ordenarPorNombreSql(Agenda agenda){
         this.Conectar();
         String query="";
-        query="select from AgendaTabla where Nombre =" + agenda.getNombre();
+        query="select Nombre,Apellido,Telefono,Dni,Email,Calle,Altura,PisoDto from AgendaTabla order by Nombre desc =" + agenda.getNombre();
+        conexion.execSQL(query);
+        this.Desconectar();
+    }
+    public void ordenarPorDniSql(Agenda agenda){
+        this.Conectar();
+        String query="";
+        query="select Nombre,Apellido,Telefono,Dni,Email,Calle,Altura,PisoDto from AgendaTabla order by Dni desc =" + agenda.getDni().toString();
         conexion.execSQL(query);
         this.Desconectar();
     }

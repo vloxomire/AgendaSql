@@ -15,6 +15,7 @@ public class ListenerCheckDni implements View.OnClickListener{
     private Recycler context;
     private RecyclerView recyclerView;
     private ArrayList<Agenda> agendaArrayList;
+    private Agenda agenda;
 
     public ListenerCheckDni(Recycler context, RecyclerView recyclerView, ArrayList<Agenda> agendaArrayList) {
         this.context = context;
@@ -25,7 +26,13 @@ public class ListenerCheckDni implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         Toast.makeText(context,"Ordenar por Dni",Toast.LENGTH_SHORT).show();
+
         SqliteAgenda sqliteAgenda=new SqliteAgenda(context);
+        sqliteAgenda.ordenarPorDniSql(agenda);
+
+        ArrayList<Agenda> agendaArrayList=sqliteAgenda.getAgenda(); //consulta de ArrayList
+        context.getAdapterRecycler().setAgendaArrayList(agendaArrayList);   //lo vuelve a escribir
+        context.getAdapterRecycler().notifyDataSetChanged();    //ejecutar Sql
 
     }
 }
