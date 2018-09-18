@@ -30,12 +30,12 @@ public class ListenerCheckNombre implements View.OnClickListener{
         Toast.makeText(context,"Ordenar por Nombre",Toast.LENGTH_SHORT).show();
 
         SqliteAgenda sqliteAgenda=new SqliteAgenda(context);
-        sqliteAgenda.ordenarPorNombreSql(agenda);
+        Integer posicion=listView.getPositionForView(v);
+        sqliteAgenda.ordenarPorNombreSql(agendaArrayList.get(posicion));
 
         ArrayList<Agenda> agendaArrayList=sqliteAgenda.getAgenda(); //consulta de ArrayList
         context.getAdapterRecycler().setAgendaArrayList(agendaArrayList);   //lo vuelve a escribir
         context.getAdapterRecycler().notifyDataSetChanged();    //ejecutar Sql
-
 
     }
 }

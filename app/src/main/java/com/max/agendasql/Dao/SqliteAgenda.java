@@ -51,45 +51,31 @@ public class SqliteAgenda extends SQLiteOpenHelper{
         conexion.execSQL(query);
         this.Desconectar();
     }
-    public Agenda ordenarPorNombreSql(Agenda agenda){
+    public ArrayList<Agenda> ordenarPorNombreSql(Agenda agenda){
+        ArrayList<Agenda> agendaArrayList = new ArrayList<>();
         this.Conectar();
-        Agenda miAgenda = null;
         String query="";
-        query="select Nombre,Apellido,Telefono,Dni,Email,Calle,Altura,PisoDto from AgendaTabla order by Nombre desc="+ agenda.getNombre();
-        Cursor cursor=conexion.rawQuery(query, null);
+        query="Select Nombre, Apellido, Telefono, Dni, Email, Calle, Altura, PisoDto, Id from AgendaTabla order by Nombre";
+        Cursor cursor= conexion.rawQuery(query, null);
         while (cursor.moveToNext()){
-           miAgenda = new Agenda(cursor.getInt(cursor.getColumnIndex("Id"))
-                   ,cursor.getString(cursor.getColumnIndex("Nombre"))
-                   ,cursor.getString(cursor.getColumnIndex("Apellido"))
-                   ,cursor.getInt(cursor.getColumnIndex("Telefono"))
-                   ,cursor.getInt(cursor.getColumnIndex("Dni"))
-                   ,cursor.getString(cursor.getColumnIndex("Email"))
-                   ,cursor.getString(cursor.getColumnIndex("Calle"))
-                   ,cursor.getInt(cursor.getColumnIndex("Altura"))
-                   ,cursor.getInt(cursor.getColumnIndex("PisoDto")));
+            Agenda miAgenda = new Agenda(cursor.getInt(cursor.getColumnIndex("Id")),cursor.getString(cursor.getColumnIndex("Nombre")),cursor.getString(cursor.getColumnIndex("Apellido")),cursor.getInt(cursor.getColumnIndex("Telefono")),cursor.getInt(cursor.getColumnIndex("Dni")),cursor.getString(cursor.getColumnIndex("Email")),cursor.getString(cursor.getColumnIndex("Calle")),cursor.getInt(cursor.getColumnIndex("Altura")),cursor.getInt(cursor.getColumnIndex("PisoDto")));
+            agendaArrayList.add(miAgenda);
         }
         this.Desconectar();
-        return miAgenda;
+        return agendaArrayList;
     }
-    public Agenda ordenarPorDniSql(Agenda agenda){
+    public ArrayList<Agenda> ordenarPorDniSql(Agenda agenda){
+        ArrayList<Agenda> agendaArrayList = new ArrayList<>();
         this.Conectar();
-        Agenda miAgenda = null;
         String query="";
-        query="select Nombre,Apellido,Telefono,Dni,Email,Calle,Altura,PisoDto from AgendaTabla order by Dni desc";
-        Cursor cursor=conexion.rawQuery(query, null);
+        query="Select Nombre, Apellido, Telefono, Dni, Email, Calle, Altura, PisoDto, Id from AgendaTabla order by Dni";
+        Cursor cursor= conexion.rawQuery(query, null);
         while (cursor.moveToNext()){
-          miAgenda = new Agenda(cursor.getInt(cursor.getColumnIndex("Id"))
-                  ,cursor.getString(cursor.getColumnIndex("Nombre"))
-                  ,cursor.getString(cursor.getColumnIndex("Apellido"))
-                  ,cursor.getInt(cursor.getColumnIndex("Telefono"))
-                  ,cursor.getInt(cursor.getColumnIndex("Dni"))
-                  ,cursor.getString(cursor.getColumnIndex("Email"))
-                  ,cursor.getString(cursor.getColumnIndex("Calle"))
-                  ,cursor.getInt(cursor.getColumnIndex("Altura"))
-                  ,cursor.getInt(cursor.getColumnIndex("PisoDto")));
+            Agenda miAgenda = new Agenda(cursor.getInt(cursor.getColumnIndex("Id")),cursor.getString(cursor.getColumnIndex("Nombre")),cursor.getString(cursor.getColumnIndex("Apellido")),cursor.getInt(cursor.getColumnIndex("Telefono")),cursor.getInt(cursor.getColumnIndex("Dni")),cursor.getString(cursor.getColumnIndex("Email")),cursor.getString(cursor.getColumnIndex("Calle")),cursor.getInt(cursor.getColumnIndex("Altura")),cursor.getInt(cursor.getColumnIndex("PisoDto")));
+            agendaArrayList.add(miAgenda);
         }
         this.Desconectar();
-        return miAgenda;
+        return agendaArrayList;
     }
     public Agenda getAgendaPorID(Integer id){
         this.Conectar();
