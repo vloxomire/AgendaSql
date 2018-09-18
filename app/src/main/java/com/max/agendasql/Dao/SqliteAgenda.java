@@ -4,7 +4,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.inputmethodservice.Keyboard;
 
 import com.max.agendasql.Models.Agenda;
 
@@ -52,19 +51,29 @@ public class SqliteAgenda extends SQLiteOpenHelper{
         conexion.execSQL(query);
         this.Desconectar();
     }
-    public void ordenarPorNombreSql(Agenda agenda){
+    public Agenda ordenarPorNombreSql(Agenda agenda){
         this.Conectar();
+        Agenda miAgenda = null;
         String query="";
         query="select Nombre,Apellido,Telefono,Dni,Email,Calle,Altura,PisoDto from AgendaTabla order by Nombre desc";
         Cursor cursor=conexion.rawQuery(query, null);
         while (cursor.moveToNext()){
-           miAgenda = new Agenda(cursor.getInt(cursor.getColumnIndex("Id")),cursor.getString(cursor.getColumnIndex("Nombre")),cursor.getString(cursor.getColumnIndex("Apellido")),cursor.getInt(cursor.getColumnIndex("Telefono")),cursor.getInt(cursor.getColumnIndex("Dni")),cursor.getString(cursor.getColumnIndex("Email")),cursor.getString(cursor.getColumnIndex("Calle")),cursor.getInt(cursor.getColumnIndex("Altura")),cursor.getInt(cursor.getColumnIndex("PisoDto")));
+           miAgenda = new Agenda(cursor.getInt(cursor.getColumnIndex("Id"))
+                   ,cursor.getString(cursor.getColumnIndex("Nombre"))
+                   ,cursor.getString(cursor.getColumnIndex("Apellido"))
+                   ,cursor.getInt(cursor.getColumnIndex("Telefono"))
+                   ,cursor.getInt(cursor.getColumnIndex("Dni"))
+                   ,cursor.getString(cursor.getColumnIndex("Email"))
+                   ,cursor.getString(cursor.getColumnIndex("Calle"))
+                   ,cursor.getInt(cursor.getColumnIndex("Altura"))
+                   ,cursor.getInt(cursor.getColumnIndex("PisoDto")));
         }
         this.Desconectar();
         return miAgenda;
     }
-    public void ordenarPorDniSql(Agenda agenda){
+    public Agenda ordenarPorDniSql(Agenda agenda){
         this.Conectar();
+        Agenda miAgenda = null;
         String query="";
         query="select Nombre,Apellido,Telefono,Dni,Email,Calle,Altura,PisoDto from AgendaTabla order by Dni desc";
         Cursor cursor=conexion.rawQuery(query, null);

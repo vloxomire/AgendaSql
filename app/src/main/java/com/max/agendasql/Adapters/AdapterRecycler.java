@@ -20,7 +20,7 @@ public class AdapterRecycler extends RecyclerView.Adapter{
     public AdapterRecycler(Context context,ArrayList<Agenda> agendaArrayList)
     {
         this.context = context;
-        this.agendaArrayList = agendaArrayList;
+        this.agendaArrayList = agendaArrayList; //Recibe la lista
         this.listenerRecycler = listenerRecycler;
 
     }
@@ -33,13 +33,9 @@ public class AdapterRecycler extends RecyclerView.Adapter{
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
     {
-        LayoutInflater inflater = LayoutInflater.from(context);
-        View viewDelacelda = inflater.inflate(R.layout.item_cardview,parent,false);
-        viewDelacelda.setOnClickListener(listenerRecycler);
-
-        AgendaViewHolder agendaViewHolder = new AgendaViewHolder(viewDelacelda);
-
-        return agendaViewHolder;
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cardview,null,false);
+        view.setOnClickListener(listenerRecycler);
+        return new AgendaViewHolder(view);
     }
 
     @Override
@@ -64,14 +60,14 @@ public class AdapterRecycler extends RecyclerView.Adapter{
         public AgendaViewHolder(@NonNull View itemView)
         {
             super(itemView);
-            nombre = itemView.findViewById(R.id.tvNombreCard);
-            apellido = itemView.findViewById(R.id.tvApellidoCard);
-            telefono = itemView.findViewById(R.id.tvTelefonoCard);
-            dni = itemView.findViewById(R.id.tvDniCard);
-            calle = itemView.findViewById(R.id.tvCalleCard);
-            altura = itemView.findViewById(R.id.tvAlturaCard);
-            pisoDto = itemView.findViewById(R.id.tvPisoDtoCard);
-            email = itemView.findViewById(R.id.tvEmailCard);
+            nombre = itemView.findViewById(R.id.cardNombre);
+            apellido = itemView.findViewById(R.id.cardApellido);
+            telefono = itemView.findViewById(R.id.cardTelefono);
+            dni = itemView.findViewById(R.id.cardDni);
+            calle = itemView.findViewById(R.id.cardCalle);
+            altura = itemView.findViewById(R.id.cardAltura);
+            pisoDto = itemView.findViewById(R.id.cardPidoDto);
+            email = itemView.findViewById(R.id.cardEmail);
         }
 
         public void cargarAgenda (Agenda unaAgenda)

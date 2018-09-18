@@ -32,7 +32,7 @@ public class Recycler extends AppCompatActivity{
 
         checkBoxNombre=findViewById(R.id.ChkNombre);
         checkBoxDni=findViewById(R.id.ChkDni);
-        recyclerView=findViewById(R.id.recyclerXml);
+        recyclerView=findViewById(R.id.RecyclerId);
 
         ListenerCheckNombre listenerCheckNombre=new ListenerCheckNombre(this,agendaArrayList);
         checkBoxNombre.setOnClickListener(listenerCheckNombre);
@@ -44,8 +44,7 @@ public class Recycler extends AppCompatActivity{
         agendaArrayList=sqliteAgenda.getAgenda();
         adapterRecycler=new AdapterRecycler(this,agendaArrayList);
         recyclerView.setAdapter(adapterRecycler);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this,
-                LinearLayoutManager.HORIZONTAL,false));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         recyclerView.setHasFixedSize(true);
 
 
