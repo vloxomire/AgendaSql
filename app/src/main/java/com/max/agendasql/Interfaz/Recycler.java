@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.CheckBox;
-import android.widget.ListView;
 
 import com.max.agendasql.Adapters.AdapterRecycler;
 import com.max.agendasql.Dao.SqliteAgenda;
@@ -30,7 +29,7 @@ public class Recycler extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.recyclerview);
+        setContentView(R.layout.vista_recycler_cards);
 
         checkBoxNombre=findViewById(R.id.ChkNombre);
         checkBoxDni=findViewById(R.id.ChkDni);

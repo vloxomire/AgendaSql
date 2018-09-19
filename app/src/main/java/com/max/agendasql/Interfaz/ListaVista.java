@@ -22,7 +22,7 @@ public class ListaVista extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_view);
+        setContentView(R.layout.vista_listado_celdas);
         listViewAgenda=findViewById(R.id.ListaAgenda);
 
         sqliteAgenda=new SqliteAgenda(this);

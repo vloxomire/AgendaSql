@@ -3,7 +3,10 @@
     <color name="colorPrimary">#b53fb5</color>
     <color name="colorPrimaryDark">#9f3041</color>
     <color name="colorAccent">#482732</color>
-    
-    <color name="ambar">#ff6f00</color>
-    <color name="gold">#ffbf00</color>
+
+    <color name="StairWayToHeaven">#a0947e</color>
+    <color name="Unfocused">#E4DEC8</color>
+    <color name="Pewter">#7B6647</color>
+    <color name="Londoner3">#4B4434</color>
+    <color name="DarkLair">#2F2C1D</color>
 </resources>

@@ -18,21 +18,21 @@ import com.max.agendasql.R;
 public class Principal extends AppCompatActivity {
 private Button botonRegistrarX,botonVerListadoX,botonRecycler;
 private FloatingActionButton fabRegistrar;
-private Toolbar toolbarPrin;
+private Toolbar toolbarP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.act_inicio);
+        setContentView(R.layout.inicio);
 
-        toolbarPrin=findViewById(R.id.toolBarId);
         botonRegistrarX=findViewById(R.id.botonRegistrar);
         botonVerListadoX=findViewById(R.id.botonVerListado);
         botonRecycler=findViewById(R.id.botonRecycler);
         fabRegistrar=findViewById(R.id.fab);
         //Bloque Toolbar
-        setSupportActionBar(toolbarPrin);
-
+        toolbarP=findViewById(R.id.toolBarId);
+        setSupportActionBar(toolbarP);//Este método establece la barra de herramientas como la barra de app de la actividad
+        // getSupportActionBar() Este método muestra una referencia a un objeto appcompat ActionBar
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
@@ -51,10 +51,10 @@ private Toolbar toolbarPrin;
         botonRecycler.setOnClickListener(listenerRecycler);
         fabRegistrar.setOnClickListener(listenerFabRegistrar);
     }
-
+    //toolbar
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_action_bar,menu);
+    public boolean onCreateOptionsMenu(Menu menuP) {
+        getMenuInflater().inflate(R.menu.menu_action_bar,menuP);
         return true;
     }
 
@@ -68,7 +68,7 @@ private Toolbar toolbarPrin;
         }
         //acciones del menu definido por el desarrollador<Sina android.R.
         switch (item.getItemId()){
-            case R.id.agregarCliente:
+            case R.id.menuId:
                 Toast.makeText(this,"Agregar cliente",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.salirId:

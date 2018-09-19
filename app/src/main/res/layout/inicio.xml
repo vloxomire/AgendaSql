@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Layout_Listados"
+    android:background="@color/Unfocused"
+    tools:context=".Interfaz.Principal">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolBarId"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/DarkLair"
+        android:elevation="35dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+    </android.support.v7.widget.Toolbar>
+
+    <Button
+        style="@style/botones"
+        android:id="@+id/botonRegistrar"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="171dp"
+        android:text="@string/registrar" />
+    <Button
+        style="@style/botones"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/botonVerListado"
+        android:text="@string/ver_listado"/>
+
+    <Button
+        style="@style/botones"
+        android:id="@+id/botonRecycler"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="176dp"
+        android:text="Reciclado" />
+
+    <android.support.design.widget.FloatingActionButton
+
+        style="@style/fab"
+        android:id="@+id/fab"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="25dp"
+        android:layout_marginEnd="23dp"
+        android:clickable="true"
+        app:srcCompat="@android:drawable/ic_menu_add"
+        android:labelFor="@+id/Registrar"/>
+
+</RelativeLayout>

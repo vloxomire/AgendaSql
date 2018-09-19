@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/Unfocused"
     tools:context=".Interfaz.Recycler">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolBarId"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/DarkLair"
+        android:elevation="35dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+    </android.support.v7.widget.Toolbar>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:background="@color/ambar"
         android:id="@+id/Linear1"
         android:orientation="horizontal"
         android:layout_marginBottom="20dp">
@@ -23,15 +31,18 @@
             android:text="Dni"
             android:id="@+id/ChkDni"/>
     </LinearLayout>
+
     <android.support.v7.widget.RecyclerView
         xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/RecyclerId"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        android:id="@+id/RecyclerId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolBarId"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="8dp"
         android:layout_marginRight="10dp">
     </android.support.v7.widget.RecyclerView>
 
 
 
-</LinearLayout>
+</RelativeLayout>

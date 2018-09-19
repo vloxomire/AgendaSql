@@ -6,13 +6,10 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.max.agendasql.Dao.SqliteAgenda;
-import com.max.agendasql.Listeners.ListenerActualizar;
 import com.max.agendasql.Listeners.ListenerGuardar;
 import com.max.agendasql.Listeners.ListenerGuardarLongClick;
 import com.max.agendasql.Models.Agenda;
 import com.max.agendasql.R;
-
-import java.util.ArrayList;
 
 public class Activity2 extends AppCompatActivity {
     private EditText editNombre, editApellido, editTelefono, editDni, editEmail, editCalle, editAltura, editPisoDto;
@@ -64,7 +61,7 @@ public class Activity2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.formulario);
 
         Bundle bundleEnviados = getIntent().getExtras();
 

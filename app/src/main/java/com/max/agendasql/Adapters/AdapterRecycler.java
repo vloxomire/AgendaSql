@@ -33,7 +33,7 @@ public class AdapterRecycler extends RecyclerView.Adapter{
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
     {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cardview,null,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cards,null,false);
         view.setOnClickListener(listenerRecycler);
         return new AgendaViewHolder(view);
     }
