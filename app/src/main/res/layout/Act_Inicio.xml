@@ -5,6 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/Layout_Listados"
     tools:context=".Interfaz.Principal">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolBarId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/ambar">
+
+    </android.support.v7.widget.Toolbar>
 
     <Button
         style="@style/botones"

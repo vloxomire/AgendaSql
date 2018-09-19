@@ -1,8 +1,8 @@
 package com.max.agendasql.Interfaz;
 
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.widget.Button;
 
 import com.max.agendasql.Listeners.ListenerFabRegistrar;
@@ -18,7 +18,7 @@ private FloatingActionButton fabRegistrar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_principal);
+        setContentView(R.layout.Act_Inicio);
         botonRegistrarX=findViewById(R.id.botonRegistrar);
         botonVerListadoX=findViewById(R.id.botonVerListado);
         botonRecycler=findViewById(R.id.botonRecycler);

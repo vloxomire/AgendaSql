@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Toast;
-
 import com.max.agendasql.Interfaz.Activity2;
 import com.max.agendasql.Interfaz.Principal;
 
